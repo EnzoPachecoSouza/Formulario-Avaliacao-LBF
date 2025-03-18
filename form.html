@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Avaliação</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Formulário de Avaliação</h2>
+        <form id="avaliacao-form">
+            <label for="avaliador">Nome do Avaliador:</label>
+            <select id="avaliador" required>
+                <option value="">Selecione</option>
+                <option value="Avaliador 1">Enzo Pacheco</option>
+                <option value="Avaliador 2">João Mendes</option>
+                <option value="Avaliador 3">Hércules Alves</option>
+                <option value="Avaliador 4">Bruno Galvão</option>
+                <option value="Avaliador 5">Ewerton Ravelli</option>
+                <option value="Avaliador 6">Washington Souza</option>
+            </select>
+
+            <label for="aspecto">Aspecto de Avaliação:</label>
+            <select id="aspecto" required>
+                <option value="">Selecione</option>
+                <option value="sopro">Aspecto Sopro</option>
+                <option value="interpretacao">Aspecto Interpretação</option>
+                <option value="percussao">Aspecto Percussão</option>
+            </select>
+
+            <div id="inputs-avaliacao"></div>
+
+            <button type="submit">Enviar Avaliação</button>
+        </form>
+    </div>
+
+    <script src="form.js"></script>
+</body>
+</html>
