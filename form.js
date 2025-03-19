@@ -190,10 +190,13 @@ function enviarAvaliacao(event) {
     })
         .then(() => {
             alert("✅ Avaliação enviada com sucesso!");
+            window.print();
             document.getElementById("formulario").reset();
             
             // Resetando selects e limpando a tela
             document.getElementById("corporacao").selectedIndex = 0;
+
+            
 
         })
         .catch(error => console.error("❌ Erro ao enviar:", error));
