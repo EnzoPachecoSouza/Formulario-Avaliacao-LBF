@@ -65,7 +65,7 @@ button:hover {
     background: #043eb4;
 }
 
-.img-logo{
+.img-logo {
     width: 100%;
     height: 100px;
     margin-bottom: 20px;
@@ -75,6 +75,16 @@ button:hover {
 @media (max-width: 400px) {
     .container {
         padding: 1.5rem;
+        width: 85%;
+        height: 350px;
+        text-align: center;
+    }
+
+    .img-logo {
+        width: 100%;
+        height: 60px;
+        margin-bottom: 20px;
+        text-align: center;
     }
 
     .input-group input {
@@ -83,5 +93,9 @@ button:hover {
 
     button {
         padding: 8px;
+    }
+
+    .input-group label {
+        margin-bottom: 1rem;
     }
 }
