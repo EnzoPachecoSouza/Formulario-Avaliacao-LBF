@@ -132,29 +132,55 @@ function verificarEstouro() {
     }
 }
 
-function enviarAvaliacao() {
+function enviarAvaliacao(event) {
+    event.preventDefault(); // Evita o envio automático do formulário
+
     const avaliador = document.getElementById("avaliador").value;
     const corporacao = document.getElementById("corporacao").value;
 
     if (!avaliador) {
-        alert("Selecione um avaliador antes de enviar.");
+        alert("⚠️ Selecione um avaliador antes de enviar.");
         return;
     }
 
     if (!corporacao) {
-        alert("Selecione a corporação antes de enviar.");
+        alert("⚠️ Selecione a corporação antes de enviar.");
         return;
     }
 
     let dados = { avaliador, corporacao };
+    let camposInvalidos = false;
 
-    // Captura os valores na ordem correta
-    for (let i = 1; i <= 4; i++) {
-        let input = document.getElementById(`quesito${i}`);
-        dados[`quesito${i}`] = input ? input.value || "0" : "0";
+    // Captura todos os inputs e selects dentro da div "quesitos"
+    const inputs = document.querySelectorAll("#quesitos input, #quesitos select");
+    
+    inputs.forEach((input, index) => {
+        console.log(`Campo ${input.name}:`, input.value); // Debug para ver os valores
+
+        if (input.type === "number") {
+            let valor = input.value.trim() === "" ? NaN : parseFloat(input.value); // Garante que valor em branco vire NaN
+            
+            if (isNaN(valor) || valor < 0 || valor > 10) {
+                alert(`⚠️ O valor do campo "${input.name}" deve estar entre 0 e 10.`);
+                camposInvalidos = true;
+                return;
+            }
+            dados[`quesito${index + 1}`] = valor.toFixed(2);
+        } else {
+            if (input.value.trim() === "") {
+                alert(`⚠️ O campo "${input.name}" não pode estar vazio.`);
+                camposInvalidos = true;
+                return;
+            }
+            dados[`quesito${index + 1}`] = input.value.trim();
+        }
+    });
+
+    if (camposInvalidos) {
+        return; // Se houver erro, interrompe o envio
     }
 
-    console.log("Enviando os seguintes dados:", dados); // Para ver no console antes de enviar
+    console.log("✅ Dados enviados:", dados);
 
     fetch("https://script.google.com/macros/s/AKfycbyjoWcm05tCmacmoyesdG8mVxUKzBH8m1odfoPTUOHp6pC33uMGGUoU8SebfwTh9W47xQ/exec", {
         method: "POST",
@@ -163,11 +189,54 @@ function enviarAvaliacao() {
         body: JSON.stringify(dados)
     })
         .then(() => {
-            alert("Avaliação enviada com sucesso!");
+            alert("✅ Avaliação enviada com sucesso!");
             document.getElementById("formulario").reset();
-
-            // Retornando os selects para a opção padrão
+            
+            // Resetando selects e limpando a tela
             document.getElementById("corporacao").selectedIndex = 0;
+
         })
-        .catch(error => console.error("Erro ao enviar:", error));
+        .catch(error => console.error("❌ Erro ao enviar:", error));
 }
+
+
+
+// function enviarAvaliacao() {
+//     const avaliador = document.getElementById("avaliador").value;
+//     const corporacao = document.getElementById("corporacao").value;
+
+//     if (!avaliador) {
+//         alert("Selecione um avaliador antes de enviar.");
+//         return;
+//     }
+
+//     if (!corporacao) {
+//         alert("Selecione a corporação antes de enviar.");
+//         return;
+//     }
+
+//     let dados = { avaliador, corporacao };
+
+//     // Captura os valores na ordem correta
+//     for (let i = 1; i <= 4; i++) {
+//         let input = document.getElementById(`quesito${i}`);
+//         dados[`quesito${i}`] = input ? input.value || "0" : "0";
+//     }
+
+//     console.log("Enviando os seguintes dados:", dados); // Para ver no console antes de enviar
+
+//     fetch("https://script.google.com/macros/s/AKfycbyjoWcm05tCmacmoyesdG8mVxUKzBH8m1odfoPTUOHp6pC33uMGGUoU8SebfwTh9W47xQ/exec", {
+//         method: "POST",
+//         mode: "no-cors",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify(dados)
+//     })
+//         .then(() => {
+//             alert("Avaliação enviada com sucesso!");
+//             document.getElementById("formulario").reset();
+
+//             // Retornando os selects para a opção padrão
+//             document.getElementById("corporacao").selectedIndex = 0;
+//         })
+//         .catch(error => console.error("Erro ao enviar:", error));
+// }
