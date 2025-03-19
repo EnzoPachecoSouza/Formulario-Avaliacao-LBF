@@ -192,6 +192,7 @@ function enviarAvaliacao(event) {
             alert("✅ Avaliação enviada com sucesso!");
             window.print();
             document.getElementById("formulario").reset();
+            window.location.href = "comeback.html";
             
             // Resetando selects e limpando a tela
             document.getElementById("corporacao").selectedIndex = 0;
