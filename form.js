@@ -11,25 +11,28 @@ function atualizarFormulario() {
     if (avaliador === "Jurado Palanque 1" || avaliador === "Jurado Palanque 2") {
         aspecto = "Aspecto de Sopro";
         quesitos = ["Afinação", "Ritmo", "Dinâmica", "Articulação"];
-    } else if (avaliador === "Jurado Palanque 3" || avaliador === "Jurado Palanque 4") {
+    } 
+    else if (avaliador === "Jurado Palanque 3" || avaliador === "Jurado Palanque 4") {
         aspecto = "Aspecto Interpretação";
         quesitos = ["Fraseado", "Expressão", "Regência", "Escolha de Repertório"];
-    } else if (avaliador === "Jurado Palanque 5" || avaliador === "Jurado Palanque 6") {
+    } 
+    else if (avaliador === "Jurado Palanque 5" || avaliador === "Jurado Palanque 6") {
         aspecto = "Aspecto Percussão";
         quesitos = ["Afinação", "Ritmo", "Dinâmica", "Técnica Instrumental"];
-    } else if (avaliador === "Jurado Uniformidade/Instrumental") {
+    } 
+    else if (avaliador === "Jurado Uniformidade/Instrumental") {
         aspecto = "Aspecto Uniformidade e Instrumental";
         quesitos = ["Uniformidade", "Instrumental"];
-    } else if (avaliador === "Jurado Check-In") {
+    } 
+    else if (avaliador === "Jurado Check-In") {
         aspecto = "Aspecto Check-In";
         quesitos = ["Check-in Correto", "Horário Feito"];
-    } else if (avaliador === "Jurado Faixa Etária") {
-        aspecto = "Aspecto Faixa Etária";
-        quesitos = ["Uniformidade", "Instrumental"];
-    } else if (avaliador === "Jurado Cronômetro") {
+    }  
+    else if (avaliador === "Jurado Cronômetro") {
         aspecto = "Aspecto Cronômetro";
         quesitos = ["Tempo de Apresentação", "Estourou o Tempo?"];
-    } else if (avaliador === "Jurado Faixa Etária") {
+    } 
+    else if (avaliador === "Jurado Faixa Etária") {
         aspecto = "Aspecto Faixa Etária";
         quesitos = ["Quantidade de Integrantes", "Possui membros acima da idade?"];
     }
