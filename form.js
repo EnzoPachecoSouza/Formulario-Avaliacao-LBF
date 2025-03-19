@@ -66,7 +66,7 @@ function atualizarFormulario() {
         });
     } else if (aspecto === "Aspecto Cronômetro") {
         aspectoDiv.innerHTML = `<h3>${aspecto}</h3>`;
-
+    
         quesitosDiv.innerHTML = `
             <label for="quesito1">${quesitos[0]}:</label>
             <input type="text" id="quesito1" name="quesito1" placeholder="Exemplo: 05:30" required><br>
@@ -77,10 +77,10 @@ function atualizarFormulario() {
                 <option value="Sim">Sim</option>
                 <option value="Não">Não</option>
             </select><br>
-
+    
             <div id="campoEstouro" style="display: none;">
                 <label for="quesito3">Quanto tempo estourou?</label>
-                <input type="text" id="quesito3" name="quesito3" placeholder="Exemplo: 00:30"><br>
+                <input type="text" id="quesito3" name="quesito3" placeholder="Exemplo: 00:30" disabled><br>
             </div>
         `;
     } else if (aspecto === "Aspecto Faixa Etária") {
@@ -88,7 +88,7 @@ function atualizarFormulario() {
 
         quesitosDiv.innerHTML = `
             <label for="quesito1">${quesitos[0]}:</label>
-            <input type="number" id="quesito1" name="quesito1" min="0" placeholder="Exemplo: 30" required><br>
+            <input type="text" id="quesito1" name="quesito1" placeholder="Exemplo: 30" required><br>
     
             <label for="quesito2">${quesitos[1]}:</label>
             <select id="quesito2" name="quesito2" required onchange="verificarFaixaEtaria()">
@@ -99,7 +99,7 @@ function atualizarFormulario() {
     
             <div id="campoQuantidade" style="display: none;">
                 <label for="quesito3">Quantos membros acima da idade?</label>
-                <input type="number" id="quesito3" name="quesito3" min="0" placeholder="Exemplo: 2"><br>
+                <input type="text" id="quesito3" name="quesito3" placeholder="Exemplo: 2"><br>
             </div>
         `;
     }
@@ -115,7 +115,7 @@ function verificarFaixaEtaria() {
         campoQuantidade.style.display = "block"; // Mostra o campo se "Sim" for selecionado
     } else {
         campoQuantidade.style.display = "none"; // Oculta o campo se "Não" for selecionado
-        document.getElementById("quesito3").value = ""; // Limpa o valor do input
+        document.getElementById("quesito3").value = "0"; // Limpa o valor do input
     }
 }
 
@@ -123,12 +123,16 @@ function verificarFaixaEtaria() {
 function verificarEstouro() {
     const select = document.getElementById("quesito2");
     const campoEstouro = document.getElementById("campoEstouro");
+    const inputEstouro = document.getElementById("quesito3"); // Adicionei a captura do input
 
     if (select.value === "Sim") {
         campoEstouro.style.display = "block";
+        inputEstouro.removeAttribute("disabled"); // 🔹 Agora pode digitar
+        inputEstouro.value = ""; // 🔹 Limpa o campo ao exibir
     } else {
         campoEstouro.style.display = "none";
-        document.getElementById("quesito3").value = ""; // Reseta o valor do campo ao ocultá-lo
+        inputEstouro.value = "00:00"; // 🔹 Define um valor padrão
+        inputEstouro.setAttribute("disabled", "true"); // 🔹 Impede a edição novamente
     }
 }
 
@@ -137,6 +141,7 @@ function enviarAvaliacao(event) {
 
     const avaliador = document.getElementById("avaliador").value;
     const corporacao = document.getElementById("corporacao").value;
+    // const termosAceitos = document.getElementById("aceitarTermos").checked;
 
     if (!avaliador) {
         alert("⚠️ Selecione um avaliador antes de enviar.");
@@ -147,6 +152,12 @@ function enviarAvaliacao(event) {
         alert("⚠️ Selecione a corporação antes de enviar.");
         return;
     }
+
+    // if (!termosAceitos) {
+    //     alert("⚠️ Você deve aceitar os termos antes de enviar a avaliação.");
+    //     return;
+    // }
+
 
     let dados = { avaliador, corporacao };
     let camposInvalidos = false;
@@ -182,7 +193,7 @@ function enviarAvaliacao(event) {
 
     console.log("✅ Dados enviados:", dados);
 
-    fetch("https://script.google.com/macros/s/AKfycbyjoWcm05tCmacmoyesdG8mVxUKzBH8m1odfoPTUOHp6pC33uMGGUoU8SebfwTh9W47xQ/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbxmJvDRxpuhhFk67owrZ2tBUlPBo9j4U9zSwnJ2_b0frSUOfNXEHomuLIAdD24XKUFy1w/exec", {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
