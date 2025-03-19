@@ -10,33 +10,35 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #3ea036, #17a80a);
 }
 
 .container {
-    background: white;
+    background: #f4f6f9;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 350px;
+    max-width: 450px;
+    height: 400px;
     text-align: center;
 }
 
 h2 {
     margin-bottom: 1rem;
-    color: #333;
+    color: #4d6d85;
 }
 
 .input-group {
     margin-bottom: 1rem;
     text-align: left;
+    font-weight: 600;
 }
 
 .input-group label {
     display: block;
     margin-bottom: 0.3rem;
-    color: #555;
+    color: #4d6d85;
 }
 
 .input-group input {
@@ -49,18 +51,25 @@ h2 {
 
 button {
     width: 100%;
-    padding: 10px;
-    background: #667eea;
+    padding: 15px;
+    background: #012775;
     border: none;
     color: white;
-    font-size: 1rem;
+    font-size: 20px;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
 }
 
 button:hover {
-    background: #5643a0;
+    background: #043eb4;
+}
+
+.img-logo{
+    width: 100%;
+    height: 100px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 @media (max-width: 400px) {

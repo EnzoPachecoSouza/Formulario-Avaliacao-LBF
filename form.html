@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Avaliação</title>
     <link rel="stylesheet" href="form.css">
-    <link rel="shortcut icon" href="img/faviconLogo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <h2>Formulário de Avaliação</h2>
-        <form id="avaliacao-form">
-            <label for="avaliador">Nome do Avaliador:</label>
-            <select id="avaliador" required>
-                <option value="">Selecione</option>
-                <option value="Enzo Pacheco">Enzo Pacheco</option>
-                <option value="João Mendes">João Mendes</option>
-                <option value="Hércules Alves">Hércules Alves</option>
-                <option value="Bruno Galvão">Bruno Galvão</option>
-                <option value="Ewerton Ravelli">Ewerton Ravelli</option>
-                <option value="Washington Souza">Washington Souza</option>
-            </select>
+        <label for="avaliador">Selecione o Avaliador:</label>
+        <select id="avaliador" onchange="atualizarFormulario()">
+            <option value="">-- Escolha --</option>
+            <option value="Jurado Palanque 1">Jurado Palanque 1</option>
+            <option value="Jurado Palanque 2">Jurado Palanque 2</option>
+            <option value="Jurado Palanque 3">Jurado Palanque 3</option>
+            <option value="Jurado Palanque 4">Jurado Palanque 4</option>
+            <option value="Jurado Palanque 5">Jurado Palanque 5</option>
+            <option value="Jurado Palanque 6">Jurado Palanque 6</option>
+            <option value="Jurado Cronômetro">Jurado Cronômetro</option>
+            <option value="Jurado Faixa Etária">Jurado Faixa Etária</option>
+            <option value="Jurado Check-In">Jurado Check-In</option>
+            <option value="Jurado Uniformidade/Instrumental">Jurado Uniformidade/Instrumental</option>
+        </select>
 
-            <label for="corporacao">Nome da Corporação:</label>
-            <select id="corporacao" required>
-                <option value="">Selecione</option>
-                <option value="FAGAP">01 - FAGAP</option>
-                <option value="Marista Pio XII">02 - Marista Pio XII</option>
-                <option value="Projeto Música nas Escolas">03 - Projeto Música nas Escolas</option>
-                <option value="Lyra de Mauá">04 - Lyra de Mauá</option>
-            </select>
+        <label for="corporacao">Selecione a Corporação:</label>
+        <select id="corporacao">
+            <option value="">-- Escolha --</option>
+            <option value="01 - Banda">01 - Banda</option>
+            <option value="02 - Banda">02 - Banda</option>
+            <option value="03 - Banda">03 - Banda</option>
+            <option value="04 - Banda">04 - Banda</option>
+            <option value="05 - Banda">05 - Banda</option>
+        </select>
 
-            <label for="aspecto">Aspecto de Avaliação:</label>
-            <select id="aspecto" required>
-                <option value="">Selecione</option>
-                <option value="sopro">Aspecto Sopro</option>
-                <option value="interpretacao">Aspecto Interpretação</option>
-                <option value="percussao">Aspecto Percussão</option>
-            </select>
-
-            <div id="inputs-avaliacao"></div>
-
-            <button type="submit">Enviar Avaliação</button>
+        <div id="aspecto"></div>
+        <form id="formulario">
+            <div id="quesitos"></div>
+            <button type="button" onclick="enviarAvaliacao()">Enviar Avaliação</button>
         </form>
     </div>
 
     <script src="form.js"></script>
 </body>
+
 </html>

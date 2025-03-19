@@ -1,6 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: "Outfit", sans-serif;
+    background-color: #4d6d85;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,10 +13,17 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 400px;
 }
 
 h2 {
+    text-align: center;
+    font-size: 30px;
+    color: #012775;
+}
+
+h3{
+    color: #3ea036;
     text-align: center;
 }
 
@@ -24,27 +31,80 @@ label {
     display: block;
     margin-top: 10px;
     font-weight: bold;
+    color: #012775;
+    font-size: 16px;
 }
 
-select, input {
+input {
+    width: 95%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+select {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 14px;
 }
 
 button {
     width: 100%;
     padding: 10px;
-    background-color: #28a745;
+    background-color: #3ea036;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 15px;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 button:hover {
     background-color: #218838;
+}
+
+@media (max-width: 400px) {
+    .container {
+        background: white;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        width: 80%;
+    }
+
+    .input-group input {
+        padding: 8px;
+    }
+
+    button {
+        padding: 8px;
+        font-size: 16px;
+    }
+
+    input {
+        width: 93%;
+        font-size: 13px;
+    }
+    select {
+        font-size: 13px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    h3{
+        font-size: 18px;
+    }
+    
+    label {
+        font-size: 15px;
+    }
 }
