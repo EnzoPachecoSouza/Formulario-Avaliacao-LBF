@@ -4,7 +4,7 @@ function verificarLogin(event) {
     const usuarios = {
         "enzo.avaliador@gmail.com": "Enzo1234",
         "joao.avaliador@hotmail.com": "Joao4321",
-        "espatinha.fanfarrao@dedika.com": "Ravelli4321",
+        "espantinha.fanfarrao@dedika.com": "Ravelli4321",
         "bruno.avaliador@gmail.com": "Bruno0020"
     };
 
