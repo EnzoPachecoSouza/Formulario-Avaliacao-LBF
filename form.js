@@ -1,3 +1,15 @@
+function resetForm() {
+    document.getElementById("formulario").reset();
+    document.getElementById("corporacao").selectedIndex = 0;
+    console.log("oi, fui atualizado");
+}
+
+function avaliarNovamente() {
+
+    // Redireciona para a tela de avaliação (substitua 'index.html' pelo caminho correto)
+    window.location.href = "form.html";
+}
+
 function getAvaliador() {
     const avaliador = localStorage.getItem("nome");
     console.log(avaliador);
