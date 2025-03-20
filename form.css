@@ -104,17 +104,23 @@ button:hover {
 }
 
 .reset{
+    margin-top: 30px;
     text-align: center;
     font-size: 25px;
     color: #4d6d85;
 }
 
 #icon-reset{
- margin-right: 100px;
+
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none; /* Impede o clique */
 }
 
 #icon-pdf{
-    
+    margin-right: 100px;
 }
 
 

@@ -3,15 +3,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-function resetForm() {
-    document.getElementById("formulario").reset();
-    document.getElementById("corporacao").selectedIndex = 0;
-    console.log("Atualizando o reset");
-}
+// function resetForms() {
+//     document.getElementById("formulario").reset();
+//     document.getElementById("corporacao").selectedIndex = 0;
+//     console.log("Atualizando o reset");
+// }
 
-function printPDF(){
-    window.print();
-}
+// function printPDF(){
+//     window.print();
+// }
 
 function avaliarNovamente() {
 
@@ -247,6 +247,8 @@ function enviarAvaliacao(event) {
         .then(() => {
             alert("✅ Avaliação enviada com sucesso!");
 
+            document.getElementById("icon-pdf").classList.remove("disabled"); // Habilita o PDF
+            document.getElementById("button-send").classList.add("disabled"); // Desabilita o button-send
              
             // document.getElementById("formulario").reset();
             //  window.location.href = "comeback.html";
@@ -258,6 +260,37 @@ function enviarAvaliacao(event) {
             // document.getElementById("corporacao").selectedIndex = 0;
         })
         .catch(error => console.error("❌ Erro ao enviar:", error));
+}
+
+// Função para gerar PDF
+function printPDF() {
+    if (document.getElementById("icon-pdf").classList.contains("disabled")) {
+        alert("⚠️ Você precisa enviar a avaliação primeiro!");
+        return;
+    }
+
+    window.print();
+
+    // Habilita o botão de reset após gerar o PDF
+    document.getElementById("icon-reset").classList.remove("disabled");
+    
+}
+
+// Função para resetar o formulário
+function resetForm() {
+    // if (document.getElementById("icon-reset").classList.contains("disabled")) {
+    //     alert("⚠️ Você precisa gerar o PDF antes de resetar!");
+    //     return;
+    // }
+
+    document.getElementById("formulario").reset();
+    document.getElementById("corporacao").selectedIndex = 0;
+    console.log("Formulário resetado");
+
+    // Desabilita os botões novamente
+    document.getElementById("icon-pdf").classList.add("disabled");
+    document.getElementById("icon-reset").classList.add("disabled");
+    document.getElementById("button-send").classList.remove("disabled"); // Desabilita o button-send
 }
 
 

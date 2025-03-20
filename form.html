@@ -22,13 +22,6 @@
 
         <h2>Formulário de Avaliação</h2>
 
-        <div class="reset">
-            <i onclick="resetForm()" id="icon-reset" class="fa-solid fa-rotate-right"></i>
-
-            <i onclick="printPDF()" id="icon-pdf" class="fa-solid fa-file-pdf"></i>
-        </div>
-        
-
         <label for="avaliador">Selecione o Avaliador:</label>
         <input type="text" readonly id="avaliador">
 
@@ -68,7 +61,12 @@
             </div>
 
 
-            <button type="button" onclick="enviarAvaliacao(event)">Enviar Avaliação</button>
+            <button type="button" id="button-send" onclick="enviarAvaliacao(event)">Enviar Avaliação</button>
+
+            <div class="reset">
+                <i onclick="printPDF()" id="icon-pdf" class="fa-solid fa-file-pdf disabled"></i>
+                <i onclick="resetForm()" id="icon-reset" class="fa-solid fa-rotate-right disabled"></i>
+            </div>
         </form>
     </div>
 
