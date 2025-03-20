@@ -204,7 +204,7 @@ function enviarAvaliacao(event) {
 
     if (camposInvalidos) return;
 
-     console.log("✅ Dados enviados:", dados);
+    console.log("✅ Dados enviados:", dados);
 
     fetch("https://script.google.com/macros/s/AKfycbxmJvDRxpuhhFk67owrZ2tBUlPBo9j4U9zSwnJ2_b0frSUOfNXEHomuLIAdD24XKUFy1w/exec", {
         method: "POST",
@@ -215,11 +215,11 @@ function enviarAvaliacao(event) {
         .then(() => {
             alert("✅ Avaliação enviada com sucesso!");
             window.print();
-            
-             window.location.href = "comeback.html";
-             
-             document.getElementById("formulario").reset();
-             document.getElementById("corporacao").selectedIndex = 0;
+            // document.getElementById("formulario").reset();
+            window.location.href = "comeback.html";
+
+
+            // document.getElementById("corporacao").selectedIndex = 0;
 
             // Resetando selects e limpando a tela
             // document.getElementById("corporacao").selectedIndex = 0;
