@@ -61,6 +61,11 @@ select {
     font-weight: 600 ;
 }
 
+.textInput{
+    color: #4d6d85;
+    font-weight: 600 ;
+}
+
 .termo {
     margin: 15px 0;
     font-size: 14px;

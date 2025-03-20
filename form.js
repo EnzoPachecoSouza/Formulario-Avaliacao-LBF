@@ -1,19 +1,19 @@
-function getAvaliador(){
+function getAvaliador() {
     const avaliador = localStorage.getItem("nome");
     console.log(avaliador);
     return avaliador;
-    
+
 }
 
 document.getElementById("avaliador").value = getAvaliador();
 
 function atualizarFormulario() {
-    
+
     const avaliador = getAvaliador();
     const aspectoDiv = document.getElementById("aspecto");
     const quesitosDiv = document.getElementById("quesitos");
 
-    
+
 
     aspectoDiv.innerHTML = "";
     quesitosDiv.innerHTML = "";
@@ -151,7 +151,7 @@ function verificarEstouro() {
 
 function enviarAvaliacao(event) {
     event.preventDefault(); // Evita o envio automático do formulário
-;
+
     const avaliador = getAvaliador();
     const corporacao = document.getElementById("corporacao").value;
     const termosAceitos = document.getElementById("aceitarTermos").checked;
@@ -171,14 +171,8 @@ function enviarAvaliacao(event) {
         return;
     }
 
-    // let aspecto = document.getElementById("aspecto").innerText || "Aspecto não informado";
-    
-    // let mensagemWpp = `*Declaração de Avaliação LBF*\n\n`;
-    // mensagemWpp += `Eu, *${avaliador}*, responsável por avaliar o *${aspecto}*, declaro estar de acordo com o termo de veracidade da Liga Brasileira de Bandas e Fanfarras.\n`;
-    // mensagemWpp += `Referente ao Campeonato Brasileiro em Amparo/SP no dia 06/04/2025.\n\n`;
-    // mensagemWpp += `*Corporação Avaliada:* ${corporacao}\n\n`;
-    // mensagemWpp += ` *Avaliação:* \n\n`;
 
+    let dados = { avaliador, corporacao };
     let camposInvalidos = false;
     // let notas = [];
 
@@ -186,41 +180,48 @@ function enviarAvaliacao(event) {
     const inputs = document.querySelectorAll("#quesitos input, #quesitos select");
 
     inputs.forEach((input) => {
+
+        let nomeCampo = input.name; // Exemplo: "quesito1"
+        let valorCampo = input.value.trim();
+
         if (input.type === "number") {
-            let valor = input.value.trim() === "" ? NaN : parseFloat(input.value);
+            let valor = valorCampo === "" ? NaN : parseFloat(valorCampo);
             if (isNaN(valor) || valor < 0 || valor > 10) {
-                alert(`⚠️ O valor do campo "${input.name}" deve estar entre 0 e 10.`);
+                alert(`⚠️ O valor do campo "${nomeCampo}" deve estar entre 0 e 10.`);
                 camposInvalidos = true;
                 return;
             }
-            // notas.push(`*${input.previousElementSibling.innerText}* : ${valor.toFixed(2)}`);
+            dados[nomeCampo] = valor; // Adiciona ao objeto dados
         } else {
-            if (input.value.trim() === "") {
-                alert(`⚠️ O campo "${input.name}" não pode estar vazio.`);
+            if (valorCampo === "") {
+                alert(`⚠️ O campo "${nomeCampo}" não pode estar vazio.`);
                 camposInvalidos = true;
                 return;
             }
-            // notas.push(`*${input.previousElementSibling.innerText}* : ${input.value.trim()}`);
+            dados[nomeCampo] = valorCampo; // Adiciona ao objeto dados
         }
     });
 
     if (camposInvalidos) return;
 
-    // mensagemWpp += notas.join("\n");
-    // mensagemWpp += `\n\nDeclaro minha total consciência diante da responsabilidade de avaliar a corporação.`;
+     console.log("✅ Dados enviados:", dados);
 
-    // **Número do WhatsApp que receberá a mensagem**
-    // const numeroWhatsApp = "5512978985954"; // 🔴 SUBSTITUA PELO NÚMERO DESEJADO
+    fetch("https://script.google.com/macros/s/AKfycbxmJvDRxpuhhFk67owrZ2tBUlPBo9j4U9zSwnJ2_b0frSUOfNXEHomuLIAdD24XKUFy1w/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dados)
+    })
+        .then(() => {
+            alert("✅ Avaliação enviada com sucesso!");
+            window.print();
+            document.getElementById("formulario").reset();
+            window.location.href = "comeback.html";
 
-    // **Criando o link com encode para evitar erros**
-    // const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemWpp)}`;
-
-    // console.log("✅ Dados enviados:", mensagemWpp);
-
-    alert("✅ Avaliação enviada com sucesso!");
-    window.print();
-    // window.open(linkWhatsApp, "_blank");
-    document.getElementById("formulario").reset();
-    window.location.href = "comeback.html";
+            // Resetando selects e limpando a tela
+            document.getElementById("corporacao").selectedIndex = 0;
+        })
+        .catch(error => console.error("❌ Erro ao enviar:", error));
 }
+
 
