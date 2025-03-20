@@ -9,6 +9,10 @@ function resetForm() {
     console.log("Atualizando o reset");
 }
 
+function printPDF(){
+    window.print();
+}
+
 function avaliarNovamente() {
 
     // Redireciona para a tela de avaliação (substitua 'index.html' pelo caminho correto)
@@ -243,34 +247,9 @@ function enviarAvaliacao(event) {
         .then(() => {
             alert("✅ Avaliação enviada com sucesso!");
 
-            // // Capturar imagem do formulário
-            // const formulario = document.getElementById("form-body");
-
-            // html2canvas(formulario).then((canvas) => {
-            //     const imagem = canvas.toDataURL("image/png"); // Converte para base64
-
-            //     // Obter os valores do avaliador e da corporação
-            //     const nomeAvaliador = document.getElementById("avaliador").value || "Avaliador";
-            //     const nomeCorporacao = document.getElementById("corporacao").value || "Corporacao";
-
-            //     // Criar nome do arquivo formatado
-            //     const nomeArquivo = `${nomeAvaliador}_${nomeCorporacao}.png`
-            //         .replace(/\s+/g, "_") // Substitui espaços por _
-            //         .replace(/[^\w\s]/gi, ""); // Remove caracteres especiais
-
-            //     // Criar um link para download da imagem
-            //     const link = document.createElement("a");
-            //     link.href = imagem;
-            //     link.download = nomeArquivo;
-            //     link.click();
-
-            //     // Redirecionar para a página de retorno após salvar a imagem
-            //     window.location.href = "comeback.html";
-            // });
-
-             window.print();
+             
             // document.getElementById("formulario").reset();
-             window.location.href = "comeback.html";
+            //  window.location.href = "comeback.html";
 
 
             // document.getElementById("corporacao").selectedIndex = 0;

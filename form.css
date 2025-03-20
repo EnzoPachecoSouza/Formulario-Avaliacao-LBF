@@ -103,6 +103,21 @@ button:hover {
     background-color: #218838;
 }
 
+.reset{
+    text-align: center;
+    font-size: 25px;
+    color: #4d6d85;
+}
+
+#icon-reset{
+ margin-right: 100px;
+}
+
+#icon-pdf{
+    
+}
+
+
 @media (max-width: 450px) {
     #container {
         width: 80%;

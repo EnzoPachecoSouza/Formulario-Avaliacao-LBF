@@ -12,16 +12,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
 <body id="form-body">
     <div id="container">
         <img class="img-logo" src="img/lbf-logo (1).png" alt="">
+
         <h2>Formulário de Avaliação</h2>
 
+        <div class="reset">
+            <i onclick="resetForm()" id="icon-reset" class="fa-solid fa-rotate-right"></i>
+
+            <i onclick="printPDF()" id="icon-pdf" class="fa-solid fa-file-pdf"></i>
+        </div>
+        
+
         <label for="avaliador">Selecione o Avaliador:</label>
-        <input type="text" readonly id="avaliador"> 
+        <input type="text" readonly id="avaliador">
 
         <!-- <select id="avaliador" onchange="atualizarFormulario()">
             <option value="">-- Escolha --</option>
