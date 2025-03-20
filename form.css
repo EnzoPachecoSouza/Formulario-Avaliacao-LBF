@@ -103,7 +103,7 @@ button:hover {
     background-color: #218838;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     .container {
         width: 80%;
     }

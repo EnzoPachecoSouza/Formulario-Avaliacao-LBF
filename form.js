@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function resetForm() {
     document.getElementById("formulario").reset();
     document.getElementById("corporacao").selectedIndex = 0;
-    console.log("oi");
+    console.log("Atualizando o reset");
 }
 
 function avaliarNovamente() {
@@ -89,14 +89,25 @@ function atualizarFormulario() {
     } else if (aspecto === "Aspecto Check-In") {
         aspectoDiv.innerHTML = `<h3>${aspecto}</h3>`;
         quesitos.forEach((q, index) => {
-            let placeholderText = index === 0 ? "Sim / Não" : index === 1 ? "Exemplo: 11:40" : "Check-in";
-
-            quesitosDiv.innerHTML += `
+            if (index === 0) { // Para o primeiro quesito (Check-in Correto)
+                quesitosDiv.innerHTML += `
+                <label for="quesito${index + 1}">${q}:</label>
+                <select id="quesito${index + 1}" name="quesito${index + 1}" required>
+                    <option value="">Selecione</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                </select><br>
+            `;
+            } else { // Para os outros quesitos
+                let placeholderText = index === 1 ? "Exemplo: 11:40" : "Check-in";
+                quesitosDiv.innerHTML += `
                 <label for="quesito${index + 1}">${q}:</label>
                 <input type="text" id="quesito${index + 1}" name="quesito${index + 1}" placeholder="${placeholderText}" required><br>
             `;
+            }
         });
-    } else if (aspecto === "Aspecto Cronômetro") {
+    }
+    else if (aspecto === "Aspecto Cronômetro") {
         aspectoDiv.innerHTML = `<h3>${aspecto}</h3>`;
 
         quesitosDiv.innerHTML = `

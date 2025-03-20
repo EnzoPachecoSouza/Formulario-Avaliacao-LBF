@@ -1,25 +1,3 @@
-// function verificarLogin(event) {
-//     event.preventDefault();
-
-//     const usuarios = [
-//         {nome: "Enzo Pacheco", email: "enzo.avaliador@gmail.com", senha: "1234"},
-//         {nome:"João Mends" , email: "joao.avaliador@gmail.com" , senha:"1234"},
-//         {nome:"Jurado Palanque 1" , email: "jurado.palanque1@gmail.com" , senha:"1234"},
-//     ];
-
-//     const email = document.getElementById("email").value;
-//     const senha = document.getElementById("password").value;
-
-//     if (usuarios.email && usuarios[email] === senha) {
-//         localStorage.setItem("email", email);
-//         console.log(email);
-//         window.location.href = 'form.html';
-//     } else {
-//         alert("E-mail ou senha incorretos!");
-//     }
-// }
-
-
 function verificarLogin(event) {
     event.preventDefault();
 
