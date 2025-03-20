@@ -17,59 +17,60 @@
 </head>
 
 <body id="form-body">
-    <div id="container">
-        <img class="img-logo" src="img/lbf-logo (1).png" alt="">
+    <div class="container-pai">
+        <div id="container">
+            <img class="img-logo" src="img/lbf-logo (1).png" alt="">
 
-        <h2>Formulário de Avaliação</h2>
+            <h2>Formulário de Avaliação</h2>
 
-        <label for="avaliador">Selecione o Avaliador:</label>
-        <input type="text" readonly id="avaliador">
+            <label for="avaliador">Selecione o Avaliador:</label>
+            <input type="text" readonly id="avaliador">
 
-        <!-- <select id="avaliador" onchange="atualizarFormulario()">
-            <option value="">-- Escolha --</option>
-            <option value="Jurado Palanque 1">Jurado Palanque 1</option>
-            <option value="Jurado Palanque 2">Jurado Palanque 2</option>
-            <option value="Jurado Palanque 3">Jurado Palanque 3</option>
-            <option value="Jurado Palanque 4">Jurado Palanque 4</option>
-            <option value="Jurado Palanque 5">Jurado Palanque 5</option>
-            <option value="Jurado Palanque 6">Jurado Palanque 6</option>
-            <option value="Jurado Cronômetro">Jurado Cronômetro</option>
-            <option value="Jurado Faixa Etária">Jurado Faixa Etária</option>
-            <option value="Jurado Check-In">Jurado Check-In</option>
-            <option value="Jurado Uniformidade/Instrumental">Jurado Uniformidade/Instrumental</option>
-        </select>  -->
+            <!-- <select id="avaliador" onchange="atualizarFormulario()">
+                <option value="">-- Escolha --</option>
+                <option value="Jurado Palanque 1">Jurado Palanque 1</option>
+                <option value="Jurado Palanque 2">Jurado Palanque 2</option>
+                <option value="Jurado Palanque 3">Jurado Palanque 3</option>
+                <option value="Jurado Palanque 4">Jurado Palanque 4</option>
+                <option value="Jurado Palanque 5">Jurado Palanque 5</option>
+                <option value="Jurado Palanque 6">Jurado Palanque 6</option>
+                <option value="Jurado Cronômetro">Jurado Cronômetro</option>
+                <option value="Jurado Faixa Etária">Jurado Faixa Etária</option>
+                <option value="Jurado Check-In">Jurado Check-In</option>
+                <option value="Jurado Uniformidade/Instrumental">Jurado Uniformidade/Instrumental</option>
+            </select>  -->
 
-        <label for="corporacao">Selecione a Corporação:</label>
-        <select id="corporacao" onchange="atualizarFormulario()">
-            <option value="">-- Escolha --</option>
-            <option value="01 - Banda">01 - Banda</option>
-            <option value="02 - Banda">02 - Banda</option>
-            <option value="03 - Banda">03 - Banda</option>
-            <option value="04 - Banda">04 - Banda</option>
-            <option value="05 - Banda">05 - Banda</option>
-        </select>
+            <label for="corporacao">Selecione a Corporação:</label>
+            <select id="corporacao" onchange="atualizarFormulario()">
+                <option value="">-- Escolha --</option>
+                <option value="01 - Banda">01 - Banda</option>
+                <option value="02 - Banda">02 - Banda</option>
+                <option value="03 - Banda">03 - Banda</option>
+                <option value="04 - Banda">04 - Banda</option>
+                <option value="05 - Banda">05 - Banda</option>
+            </select>
 
-        <div id="aspecto">
+            <div id="aspecto">
+            </div>
+
+            <form id="formulario">
+                <div id="quesitos"></div>
+
+                <div class="termo">
+                    <label for="aceitarTermos">Eu aceito os termos de veracidade de avaliação</label>
+                    <input type="checkbox" id="aceitarTermos" required>
+                </div>
+
+
+                <button type="button" id="button-send" onclick="enviarAvaliacao(event)">Enviar Avaliação</button>
+
+                <div class="reset">
+                    <i onclick="printPDF()" id="icon-pdf" class="fa-solid fa-file-pdf disabled"></i>
+                    <i onclick="resetForm()" id="icon-reset" class="fa-solid fa-rotate-right disabled"></i>
+                </div>
+            </form>
         </div>
-
-        <form id="formulario">
-            <div id="quesitos"></div>
-
-            <div class="termo">
-                <label for="aceitarTermos">Eu aceito os termos de veracidade de avaliação</label>
-                <input type="checkbox" id="aceitarTermos" required>
-            </div>
-
-
-            <button type="button" id="button-send" onclick="enviarAvaliacao(event)">Enviar Avaliação</button>
-
-            <div class="reset">
-                <i onclick="printPDF()" id="icon-pdf" class="fa-solid fa-file-pdf disabled"></i>
-                <i onclick="resetForm()" id="icon-reset" class="fa-solid fa-rotate-right disabled"></i>
-            </div>
-        </form>
     </div>
-
     <script src="form.js"></script>
 </body>
 

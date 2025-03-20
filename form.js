@@ -2,17 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     resetForm();
 });
 
-
-// function resetForms() {
-//     document.getElementById("formulario").reset();
-//     document.getElementById("corporacao").selectedIndex = 0;
-//     console.log("Atualizando o reset");
-// }
-
-// function printPDF(){
-//     window.print();
-// }
-
 function avaliarNovamente() {
 
     // Redireciona para a tela de avaliação (substitua 'index.html' pelo caminho correto)

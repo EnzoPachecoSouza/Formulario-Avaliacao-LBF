@@ -105,7 +105,7 @@ button:hover {
 }
 
 
-@media (min-width: 401px) and ( max-width: 525px) {
+@media (min-width: 411px) and ( max-width: 525px) {
     .container {
         padding: 1.5rem;
         width: 90%;
@@ -115,7 +115,7 @@ button:hover {
 
     .img-logo {
         width: 100%;
-        height: 80px;
+        height: 27%;
         margin-bottom: 20px;
         text-align: center;
     }
@@ -133,19 +133,18 @@ button:hover {
     }
 }
 
-@media (min-width: 376px) and ( max-width: 400px) {
+
+@media (min-width: 376px) and ( max-width: 410px) {
     .container {
         padding: 1.5rem;
-        width: 85%;
-        height: 362px;
+        width: 90%;
+        height: 350px;
         text-align: center;
     }
 
     .img-logo {
         width: 100%;
-        height: 80px; 
-        margin-bottom: 20px;
-        text-align: center;
+        height: 25%;
     }
 
     .input-group input {
@@ -171,7 +170,7 @@ button:hover {
 
     .img-logo {
         width: 100%;
-        height: 70px;
+        height: 20%;
     }
 
     .input-group input {
