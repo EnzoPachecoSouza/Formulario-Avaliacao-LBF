@@ -1,17 +1,52 @@
+// function verificarLogin(event) {
+//     event.preventDefault();
+
+//     const usuarios = [
+//         {nome: "Enzo Pacheco", email: "enzo.avaliador@gmail.com", senha: "1234"},
+//         {nome:"João Mends" , email: "joao.avaliador@gmail.com" , senha:"1234"},
+//         {nome:"Jurado Palanque 1" , email: "jurado.palanque1@gmail.com" , senha:"1234"},
+//     ];
+
+//     const email = document.getElementById("email").value;
+//     const senha = document.getElementById("password").value;
+
+//     if (usuarios.email && usuarios[email] === senha) {
+//         localStorage.setItem("email", email);
+//         console.log(email);
+//         window.location.href = 'form.html';
+//     } else {
+//         alert("E-mail ou senha incorretos!");
+//     }
+// }
+
+
 function verificarLogin(event) {
     event.preventDefault();
 
-    const usuarios = {
-        "enzo.avaliador@gmail.com": "Enzo1234",
-        "joao.avaliador@hotmail.com": "Joao4321",
-        "espantinha.fanfarrao@dedika.com": "Ravelli4321",
-        "bruno.avaliador@gmail.com": "Bruno0020"
-    };
+    const usuarios = [
+        { nome: "Jurado Palanque 1", email: "juradopalanque1@gmail.com", senha: "1234" },
+        { nome: "Jurado Palanque 2", email: "juradopalanque2@gmail.com", senha: "1234" },
+        { nome: "Jurado Palanque 3", email: "juradopalanque3@gmail.com", senha: "1234" },
+        { nome: "Jurado Palanque 4", email: "juradopalanque4@gmail.com", senha: "1234" },
+        { nome: "Jurado Palanque 5", email: "juradopalanque5@gmail.com", senha: "1234" },
+        { nome: "Jurado Palanque 6", email: "juradopalanque6@gmail.com", senha: "1234" },
+        { nome: "Jurado Uniformidade/Instrumental", email: "juradouniformidadeinstrumental@gmail.com", senha: "1234" },
+        { nome: "Jurado Check-In", email: "juradocheckin@gmail.com", senha: "1234" },
+        { nome: "Jurado Cronômetro", email: "juradocronometro@gmail.com", senha: "1234" },
+        { nome: "Jurado Faixa Etária", email: "juradofaixaetaria@gmail.com", senha: "1234" }
+    ];
 
     const email = document.getElementById("email").value;
     const senha = document.getElementById("password").value;
 
-    if (usuarios[email] && usuarios[email] === senha) {
+    // Verifica se o usuário existe no array
+    const usuarioEncontrado = usuarios.find(usuario => usuario.email === email && usuario.senha === senha);
+
+    if (usuarioEncontrado) {
+        // Salvar dados do usuário no localStorage para usar na próxima página
+        localStorage.setItem("nome", usuarioEncontrado.nome);
+
+        // Redirecionar para a página do formulário
         window.location.href = 'form.html';
     } else {
         alert("E-mail ou senha incorretos!");

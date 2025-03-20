@@ -1,13 +1,27 @@
+function getAvaliador(){
+    const avaliador = localStorage.getItem("nome");
+    console.log(avaliador);
+    return avaliador;
+    
+}
+
+document.getElementById("avaliador").value = getAvaliador();
+
 function atualizarFormulario() {
-    const avaliador = document.getElementById("avaliador").value;
+    
+    const avaliador = getAvaliador();
     const aspectoDiv = document.getElementById("aspecto");
     const quesitosDiv = document.getElementById("quesitos");
+
+    
 
     aspectoDiv.innerHTML = "";
     quesitosDiv.innerHTML = "";
 
     let aspecto = "";
     let quesitos = [];
+
+    console.log("atualizou");
 
     if (avaliador === "Jurado Palanque 1" || avaliador === "Jurado Palanque 2") {
         aspecto = "Aspecto de Sopro";
@@ -135,107 +149,6 @@ function verificarEstouro() {
     }
 }
 
-// function enviarAvaliacao(event) {
-//     event.preventDefault(); // Evita o envio automático do formulário
-
-//     const avaliador = document.getElementById("avaliador").value;
-//     const corporacao = document.getElementById("corporacao").value;
-//     const termosAceitos = document.getElementById("aceitarTermos").checked;
-
-//     // const aspectoTexto = document.getElementById("aspecto").innerText || "Aspecto não informado";
-
-//     if (!avaliador) {
-//         alert("⚠️ Selecione um avaliador antes de enviar.");
-//         return;
-//     }
-
-//     if (!corporacao) {
-//         alert("⚠️ Selecione a corporação antes de enviar.");
-//         return;
-//     }
-
-//     if (!termosAceitos) {
-//         alert("⚠️ Você deve aceitar os termos antes de enviar a avaliação.");
-//         return;
-//     }
-
-//      // **Mensagem personalizada**
-//      let dadosWpp = `*Declaração de Avaliação LBF*\n\n`;
-//      dadosWpp += `Eu, *${avaliador}*, responsável por avaliar o *${aspecto}*, 
-//      estou de acordo com o termo de veracidade proposta pela Liga Brasileira de Bandas e Fanfarras, 
-//      referente ao Campeonato Brasileiro na cidade de Amparo/SP no dia 06/04/2025.\n`;
-//      dadosWpp += `*Com isso, minha avaliação para:* ${corporacao} é:\n\n`;
-//      dadosWpp += `*Notas:* \n`;
-
-//     let dados = { avaliador, corporacao };
-//     let camposInvalidos = false;
-
-//     // Captura todos os inputs e selects dentro da div "quesitos"
-//     const inputs = document.querySelectorAll("#quesitos input, #quesitos select");
-
-//     inputs.forEach((input, index) => {
-//         console.log(`Campo ${input.name}:`, input.value); // Debug para ver os valores
-
-//         if (input.type === "number") {
-//             let valor = input.value.trim() === "" ? NaN : parseFloat(input.value); // Garante que valor em branco vire NaN
-
-//             if (isNaN(valor) || valor < 0 || valor > 10) {
-//                 alert(`⚠️ O valor do campo "${input.name}" deve estar entre 0 e 10.`);
-//                 camposInvalidos = true;
-//                 return;
-//             }
-//             dados[`quesito${index + 1}`] = valor.toFixed(2);
-//         } else {
-//             if (input.value.trim() === "") {
-//                 alert(`⚠️ O campo "${input.name}" não pode estar vazio.`);
-//                 camposInvalidos = true;
-//                 return;
-//             }
-//             dados[`quesito${index + 1}`] = input.value.trim();
-//         }
-//     });
-
-//     if (camposInvalidos) {
-//         return; // Se houver erro, interrompe o envio
-//     }
-
-//     // **Declaração final**
-//      dadosWpp += `\n\nDeclaro minha total consciência diante da responsabilidade de avaliar a corporação!`;
-
-//     // **Número de WhatsApp que receberá a mensagem**
-//      const numeroWhatsApp = "5512978985954"; // 🔴 SUBSTITUA PELO NÚMERO DESEJADO
-
-//      const mensagemWhatsApp = Object.entries(dadosWpp)
-//          .map(([chave, valor]) => `🔹 ${chave}: ${valor}`)
-//      .join("%0A");
-
-//      const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemWhatsApp)}`;
-
-
-//     console.log("✅ Dados enviados:", dados);
-
-//     fetch("https://script.google.com/macros/s/AKfycbxmJvDRxpuhhFk67owrZ2tBUlPBo9j4U9zSwnJ2_b0frSUOfNXEHomuLIAdD24XKUFy1w/exec", {
-//         method: "POST",
-//         mode: "no-cors",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify(dados)
-//     })
-//         .then(() => {
-//             alert("✅ Avaliação enviada com sucesso!");
-//             window.print();
-//              window.open(linkWhatsApp, "_blank");
-//             document.getElementById("formulario").reset();
-//             window.location.href = "comeback.html";
-
-//             // Resetando selects e limpando a tela
-//             document.getElementById("corporacao").selectedIndex = 0;
-
-
-
-//         })
-//         .catch(error => console.error("❌ Erro ao enviar:", error));
-// }
-
 function enviarAvaliacao(event) {
     event.preventDefault(); // Evita o envio automático do formulário
 
@@ -258,16 +171,16 @@ function enviarAvaliacao(event) {
         return;
     }
 
-    let aspecto = document.getElementById("aspecto").innerText || "Aspecto não informado";
+    // let aspecto = document.getElementById("aspecto").innerText || "Aspecto não informado";
     
-    let mensagemWpp = `*Declaração de Avaliação LBF*\n\n`;
-    mensagemWpp += `Eu, *${avaliador}*, responsável por avaliar o *${aspecto}*, declaro estar de acordo com o termo de veracidade da Liga Brasileira de Bandas e Fanfarras.\n`;
-    mensagemWpp += `Referente ao Campeonato Brasileiro em Amparo/SP no dia 06/04/2025.\n\n`;
-    mensagemWpp += `*Corporação Avaliada:* ${corporacao}\n\n`;
-    mensagemWpp += ` *Avaliação:* \n\n`;
+    // let mensagemWpp = `*Declaração de Avaliação LBF*\n\n`;
+    // mensagemWpp += `Eu, *${avaliador}*, responsável por avaliar o *${aspecto}*, declaro estar de acordo com o termo de veracidade da Liga Brasileira de Bandas e Fanfarras.\n`;
+    // mensagemWpp += `Referente ao Campeonato Brasileiro em Amparo/SP no dia 06/04/2025.\n\n`;
+    // mensagemWpp += `*Corporação Avaliada:* ${corporacao}\n\n`;
+    // mensagemWpp += ` *Avaliação:* \n\n`;
 
     let camposInvalidos = false;
-    let notas = [];
+    // let notas = [];
 
     // Captura todos os inputs e selects dentro da div "quesitos"
     const inputs = document.querySelectorAll("#quesitos input, #quesitos select");
@@ -280,33 +193,33 @@ function enviarAvaliacao(event) {
                 camposInvalidos = true;
                 return;
             }
-            notas.push(`*${input.previousElementSibling.innerText}* : ${valor.toFixed(2)}`);
+            // notas.push(`*${input.previousElementSibling.innerText}* : ${valor.toFixed(2)}`);
         } else {
             if (input.value.trim() === "") {
                 alert(`⚠️ O campo "${input.name}" não pode estar vazio.`);
                 camposInvalidos = true;
                 return;
             }
-            notas.push(`*${input.previousElementSibling.innerText}* : ${input.value.trim()}`);
+            // notas.push(`*${input.previousElementSibling.innerText}* : ${input.value.trim()}`);
         }
     });
 
     if (camposInvalidos) return;
 
-    mensagemWpp += notas.join("\n");
-    mensagemWpp += `\n\nDeclaro minha total consciência diante da responsabilidade de avaliar a corporação.`;
+    // mensagemWpp += notas.join("\n");
+    // mensagemWpp += `\n\nDeclaro minha total consciência diante da responsabilidade de avaliar a corporação.`;
 
     // **Número do WhatsApp que receberá a mensagem**
-    const numeroWhatsApp = "5512978985954"; // 🔴 SUBSTITUA PELO NÚMERO DESEJADO
+    // const numeroWhatsApp = "5512978985954"; // 🔴 SUBSTITUA PELO NÚMERO DESEJADO
 
     // **Criando o link com encode para evitar erros**
-    const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemWpp)}`;
+    // const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemWpp)}`;
 
-    console.log("✅ Dados enviados:", mensagemWpp);
+    // console.log("✅ Dados enviados:", mensagemWpp);
 
     alert("✅ Avaliação enviada com sucesso!");
     window.print();
-    window.open(linkWhatsApp, "_blank");
+    // window.open(linkWhatsApp, "_blank");
     document.getElementById("formulario").reset();
     window.location.href = "comeback.html";
 }

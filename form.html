@@ -17,8 +17,9 @@
         <img class="img-logo" src="img/lbf-logo (1).png" alt="">
         <h2>Formulário de Avaliação</h2>
 
-         <label for="avaliador">Selecione o Avaliador:</label>
-        <select id="avaliador" onchange="atualizarFormulario()">
+        <label for="avaliador">Selecione o Avaliador:</label>
+        <input type="text" readonly id="avaliador"> 
+        <!-- <select id="avaliador" onchange="atualizarFormulario()">
             <option value="">-- Escolha --</option>
             <option value="Jurado Palanque 1">Jurado Palanque 1</option>
             <option value="Jurado Palanque 2">Jurado Palanque 2</option>
@@ -30,10 +31,10 @@
             <option value="Jurado Faixa Etária">Jurado Faixa Etária</option>
             <option value="Jurado Check-In">Jurado Check-In</option>
             <option value="Jurado Uniformidade/Instrumental">Jurado Uniformidade/Instrumental</option>
-        </select> 
+        </select>  -->
 
         <label for="corporacao">Selecione a Corporação:</label>
-        <select id="corporacao">
+        <select id="corporacao" onchange="atualizarFormulario()">
             <option value="">-- Escolha --</option>
             <option value="01 - Banda">01 - Banda</option>
             <option value="02 - Banda">02 - Banda</option>
