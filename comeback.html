@@ -12,8 +12,12 @@
         <button class="btn" onclick="avaliarNovamente()">Avaliar Novamente</button>
     </div>
 
+    <script src="form.js"></script>
+
     <script>
         function avaliarNovamente() {
+            document.getElementById("corporacao").selectedIndex = 0;
+            document.getElementById("formulario").reset();
             // Redireciona para a tela de avaliação (substitua 'index.html' pelo caminho correto)
             window.location.href = "form.html";
         }
