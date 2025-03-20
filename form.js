@@ -246,7 +246,12 @@ function enviarAvaliacao(event) {
             // Capturar imagem do formulário
             const formulario = document.getElementById("form-body");
 
-            html2canvas(formulario).then((canvas) => {
+            // Copiar os valores dos inputs para que sejam capturados
+            document.querySelectorAll("input, select, textarea").forEach((el) => {
+                el.setAttribute("value", el.value); // Define o valor manualmente no atributo
+            });
+
+            html2canvas(formulario, { scale: 2, useCORS: true }).then((canvas) => {
                 const imagem = canvas.toDataURL("image/png"); // Converte para base64
 
                 // Obter os valores do avaliador e da corporação
@@ -267,6 +272,7 @@ function enviarAvaliacao(event) {
                 // Redirecionar para a página de retorno após salvar a imagem
                 window.location.href = "comeback.html";
             });
+
 
             // window.print();
             // document.getElementById("formulario").reset();
