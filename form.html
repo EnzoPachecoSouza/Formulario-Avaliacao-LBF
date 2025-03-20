@@ -16,7 +16,8 @@
     <div class="container">
         <img class="img-logo" src="img/lbf-logo (1).png" alt="">
         <h2>Formulário de Avaliação</h2>
-        <label for="avaliador">Selecione o Avaliador:</label>
+
+         <label for="avaliador">Selecione o Avaliador:</label>
         <select id="avaliador" onchange="atualizarFormulario()">
             <option value="">-- Escolha --</option>
             <option value="Jurado Palanque 1">Jurado Palanque 1</option>
@@ -29,7 +30,7 @@
             <option value="Jurado Faixa Etária">Jurado Faixa Etária</option>
             <option value="Jurado Check-In">Jurado Check-In</option>
             <option value="Jurado Uniformidade/Instrumental">Jurado Uniformidade/Instrumental</option>
-        </select>
+        </select> 
 
         <label for="corporacao">Selecione a Corporação:</label>
         <select id="corporacao">
@@ -41,16 +42,16 @@
             <option value="05 - Banda">05 - Banda</option>
         </select>
 
-        <div id="aspecto"> 
+        <div id="aspecto">
         </div>
-        
+
         <form id="formulario">
             <div id="quesitos"></div>
 
-            <!-- <div class="termo">
+            <div class="termo">
                 <label for="aceitarTermos">Eu aceito os termos de veracidade de avaliação</label>
                 <input type="checkbox" id="aceitarTermos" required>
-            </div> -->
+            </div>
 
 
             <button type="button" onclick="enviarAvaliacao(event)">Enviar Avaliação</button>

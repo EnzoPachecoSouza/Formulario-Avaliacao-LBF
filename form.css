@@ -45,7 +45,9 @@ input {
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 16px;
+    color: #4d6d85;
+    font-weight: 600 ;
 }
 
 select {
@@ -55,6 +57,8 @@ select {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
+    color: #4d6d85;
+    font-weight: 600 ;
 }
 
 .termo {
