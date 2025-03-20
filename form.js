@@ -151,8 +151,8 @@ function verificarEstouro() {
 
 function enviarAvaliacao(event) {
     event.preventDefault(); // Evita o envio automático do formulário
-
-    const avaliador = document.getElementById("avaliador").value;
+;
+    const avaliador = getAvaliador();
     const corporacao = document.getElementById("corporacao").value;
     const termosAceitos = document.getElementById("aceitarTermos").checked;
 
