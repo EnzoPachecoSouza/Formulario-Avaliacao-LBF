@@ -244,7 +244,7 @@ function enviarAvaliacao(event) {
             alert("✅ Avaliação enviada com sucesso!");
 
             // Capturar imagem do formulário
-            const formulario = document.getElementById("container");
+            const formulario = document.getElementById("form-body");
 
             html2canvas(formulario).then((canvas) => {
                 const imagem = canvas.toDataURL("image/png"); // Converte para base64
