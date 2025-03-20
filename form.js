@@ -173,6 +173,8 @@ function verificarEstouro() {
 function enviarAvaliacao(event) {
     event.preventDefault(); // Evita o envio automático do formulário
 
+    
+
     const avaliador = getAvaliador();
     const corporacao = document.getElementById("corporacao").value;
     const termosAceitos = document.getElementById("aceitarTermos").checked;
@@ -227,6 +229,8 @@ function enviarAvaliacao(event) {
 
     console.log("✅ Dados enviados:", dados);
 
+    document.getElementById("button-send").classList.add("disabled"); // Desabilita o button-send
+
     fetch("https://script.google.com/macros/s/AKfycbxmJvDRxpuhhFk67owrZ2tBUlPBo9j4U9zSwnJ2_b0frSUOfNXEHomuLIAdD24XKUFy1w/exec", {
         method: "POST",
         mode: "no-cors",
@@ -248,7 +252,12 @@ function enviarAvaliacao(event) {
             // Resetando selects e limpando a tela
             // document.getElementById("corporacao").selectedIndex = 0;
         })
-        .catch(error => console.error("❌ Erro ao enviar:", error));
+        .catch(error => {
+            console.error("❌ Erro ao enviar:", error) 
+
+            document.getElementById("button-send").classList.remove("disabled"); // Desabilita o button-send
+        });
+
 }
 
 // Função para gerar PDF
