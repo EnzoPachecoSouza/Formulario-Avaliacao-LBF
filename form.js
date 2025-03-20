@@ -1,6 +1,12 @@
+document.addEventListener("DOMContentLoaded", function () {
+    resetForm();
+});
+
+
 function resetForm() {
     document.getElementById("formulario").reset();
     document.getElementById("corporacao").selectedIndex = 0;
+    console.log("oi");
 }
 
 function avaliarNovamente() {
@@ -227,7 +233,6 @@ function enviarAvaliacao(event) {
             alert("✅ Avaliação enviada com sucesso!");
             window.print();
             // document.getElementById("formulario").reset();
-            resetForm();
             window.location.href = "comeback.html";
 
 
