@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100dvh;
     background: linear-gradient(135deg, #3ea036, #17a80a);
 }
 
@@ -137,7 +137,7 @@ button:hover {
     .container {
         padding: 1.5rem;
         width: 85%;
-        height: 365px;
+        height: 362px;
         text-align: center;
     }
 
