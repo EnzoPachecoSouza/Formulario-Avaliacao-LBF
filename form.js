@@ -215,11 +215,14 @@ function enviarAvaliacao(event) {
         .then(() => {
             alert("✅ Avaliação enviada com sucesso!");
             window.print();
-            document.getElementById("formulario").reset();
-            window.location.href = "comeback.html";
+            
+             window.location.href = "comeback.html";
+             
+             document.getElementById("formulario").reset();
+             document.getElementById("corporacao").selectedIndex = 0;
 
             // Resetando selects e limpando a tela
-            document.getElementById("corporacao").selectedIndex = 0;
+            // document.getElementById("corporacao").selectedIndex = 0;
         })
         .catch(error => console.error("❌ Erro ao enviar:", error));
 }
