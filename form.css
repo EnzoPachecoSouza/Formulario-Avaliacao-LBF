@@ -39,6 +39,14 @@ h3{
     text-align: center;
 }
 
+h4{
+    color: #3ea036;
+    text-align: center;
+    margin-bottom: 0px;
+    font-size: 1.17em;
+}
+
+
 label {
     display: block;
     margin-top: 10px;
@@ -75,20 +83,17 @@ select {
 }
 
 .termo {
-    margin: 15px 0;
     font-size: 14px;
     display: flex;
-    flex-direction: column;
     text-align: center;
     width: 100%;
+    margin-bottom: 15px;
 }
 
 .termo input {
     margin-right: 5px;
     text-align: center;
     width: 20px;
-    margin-top: 15px;
-    margin-left: 47%;
 }
 
 .termo label {
@@ -283,6 +288,13 @@ button:hover {
     }
 
     h3{
+        font-size: 18px;
+    }
+
+    h4{
+        color: #3ea036;
+        text-align: center;
+        margin-bottom: 0px;
         font-size: 18px;
     }
     
