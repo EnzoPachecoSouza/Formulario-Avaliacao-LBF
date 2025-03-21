@@ -11,6 +11,8 @@ function verificarLogin(event) {
         { nome: "Jurado Uniformidade/Instrumental", email: "juradouniformidadeinstrumental@gmail.com", senha: "1234" },
         { nome: "Jurado Check-In", email: "juradocheckin@gmail.com", senha: "1234" },
         { nome: "Jurado Cronômetro", email: "juradocronometro@gmail.com", senha: "1234" },
+        { nome: "Jurado Check List", email: "juradochecklist@gmail.com", senha: "1234" },
+        { nome: "Dados de Apresentação", email: "dados@gmail.com", senha: "1234" },
         { nome: "Jurado Faixa Etária", email: "juradofaixaetaria@gmail.com", senha: "1234" }
     ];
 

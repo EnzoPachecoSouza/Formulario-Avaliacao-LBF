@@ -51,15 +51,35 @@ function atualizarFormulario() {
     }
     else if (avaliador === "Jurado Check-In") {
         aspecto = "Aspecto Check-In";
-        quesitos = ["Check-in Correto", "Horário Feito"];
+        quesitos = ["Check-in Correto", "Horário Feito", "A corporação seguiu a ordem de apresentação?", "Maestro(a)", "CPF"];
     }
     else if (avaliador === "Jurado Cronômetro") {
         aspecto = "Aspecto Cronômetro";
-        quesitos = ["Tempo de Apresentação", "Estourou o Tempo?"];
+        quesitos = ["Tempo de Apresentação", "Estourou o Tempo?", "", "Maestro(a)", "CPF"];
     }
     else if (avaliador === "Jurado Faixa Etária") {
         aspecto = "Aspecto Faixa Etária";
-        quesitos = ["Quantidade de Integrantes", "Possui membros acima da idade?"];
+        quesitos = ["Quantidade de Integrantes", "Possui membros acima da idade?", "",  "Maestro(a)", "CPF"];
+    }
+    else if (avaliador === "Jurado Check List") {
+        aspecto = "Aspecto Check List";
+        quesitos = [
+            "A corporação apresentou faixa, estandarte ou distintivo conforme regulamento?", 
+            "O Instrumental está dentro do esperado na categoria?",
+            "A Percussão esta menor que 50 %?",
+            "A Banda Musical de Concerto possui os instrumentos mínimos obrigatórios?",
+            "A Banda Sinfônica possui os instrumentos mínimos obrigatórios?",
+            "O Regente está em traje social?"
+        ];
+    }
+    else if (avaliador === "Dados de Apresentação") {
+        aspecto = "Dados de Apresentação";
+        quesitos = [
+            "Nome do 1º Regente", 
+            "Nome do 2º Regente", 
+            "Peça de Aquecimento", 
+            "Peça de Confronto"
+        ];
     }
 
 
@@ -91,11 +111,25 @@ function atualizarFormulario() {
                     <option value="Não">Não</option>
                 </select><br>
             `;
-            } else { // Para os outros quesitos
-                let placeholderText = index === 1 ? "Exemplo: 11:40" : "Check-in";
+            } else if(index === 1){// Para os outros quesitos
+                let placeholderText = index === 1 ? "Exemplo: 11:40" : "";
                 quesitosDiv.innerHTML += `
                 <label for="quesito${index + 1}">${q}:</label>
                 <input type="text" id="quesito${index + 1}" name="quesito${index + 1}" placeholder="${placeholderText}" required><br>
+            `;
+            }else if (index === 2) { // Para o primeiro quesito (Check-in Correto)
+                quesitosDiv.innerHTML += `
+                <label for="quesito${index + 1}">${q}</label>
+                <select id="quesito${index + 1}" name="quesito${index + 1}" required>
+                    <option value="">Selecione</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                </select><br>
+            `;
+            }else{
+                quesitosDiv.innerHTML += `
+                <label for="quesito${index + 1}">${q}:</label>
+                <input type="text" id="quesito${index + 1}" name="quesito${index + 1}" required><br>
             `;
             }
         });
@@ -118,6 +152,12 @@ function atualizarFormulario() {
                 <label for="quesito3">Quanto tempo estourou?</label>
                 <input type="text" id="quesito3" name="quesito3" placeholder="Exemplo: 00:30" disabled><br>
             </div>
+
+            <label for="quesito1">${quesitos[3]}:</label>
+            <input type="text" id="quesito4" name="quesito4 "required><br>
+
+            <label for="quesito1">${quesitos[4]}:</label>
+            <input type="text" id="quesito5" name="quesito5" required><br>
         `;
     } else if (aspecto === "Aspecto Faixa Etária") {
         aspectoDiv.innerHTML = `<h3>${aspecto}</h3>`;
@@ -137,7 +177,43 @@ function atualizarFormulario() {
                 <label for="quesito3">Quantos membros acima da idade?</label>
                 <input type="text" id="quesito3" name="quesito3" placeholder="Exemplo: 2"><br>
             </div>
+
+            <label for="quesito1">${quesitos[3]}:</label>
+            <input type="text" id="quesito4" name="quesito4 "required><br>
+
+            <label for="quesito1">${quesitos[4]}:</label>
+            <input type="text" id="quesito5" name="quesito5" required><br>
         `;
+    } else if(aspecto === "Aspecto Check List"){ 
+        //lógica do aspecto check list
+        aspectoDiv.innerHTML = `<h3>${aspecto}</h3>`;
+        quesitos.forEach((q, index) => {
+            // Para o primeiro quesito (Check-in Correto)
+                quesitosDiv.innerHTML += `
+                <label class="label-checkList" for="quesito${index + 1}">${q}</label>
+                <select id="quesito${index + 1}" name="quesito${index + 1}" required>
+                    <option value="">Selecione</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                </select><br>
+            `;})
+    } else if(aspecto === "Dados de Apresentação"){ 
+        //lógica do aspecto Dados de Apresentação
+        aspectoDiv.innerHTML = `<h3>${aspecto}</h3>`;
+        quesitos.forEach((q, index) => {
+            if (index === 1) { // Para o segundo quesito (não obrigatório)
+                quesitosDiv.innerHTML += `
+                <label for="quesito${index + 1}">${q}:</label>
+                <input type="text" id="quesito${index + 1}" name="quesito${index + 1}"><br>
+
+            `;
+            } else { // Para os outros quesitos
+                quesitosDiv.innerHTML += `
+                <label for="quesito${index + 1}">${q}:</label>
+                <input type="text" id="quesito${index + 1}" name="quesito${index + 1}" required><br>
+            `;
+            }
+        });
     }
 }
 
@@ -216,10 +292,15 @@ function enviarAvaliacao(event) {
             }
             dados[nomeCampo] = valor; // Adiciona ao objeto dados
         } else {
+            
             if (valorCampo === "") {
-                alert(`⚠️ O campo "${nomeCampo}" não pode estar vazio.`);
-                camposInvalidos = true;
-                return;
+                if(avaliador === "Dados de Apresentação" && nomeCampo === "quesito2") {
+
+                } else{
+                    alert(`⚠️ O campo "${nomeCampo}" não pode estar vazio.`);
+                    camposInvalidos = true;
+                    return;
+                }
             }
             dados[nomeCampo] = valorCampo; // Adiciona ao objeto dados
         }
@@ -231,7 +312,7 @@ function enviarAvaliacao(event) {
 
     document.getElementById("button-send").classList.add("disabled"); // Desabilita o button-send
 
-    fetch("https://script.google.com/macros/s/AKfycbxmJvDRxpuhhFk67owrZ2tBUlPBo9j4U9zSwnJ2_b0frSUOfNXEHomuLIAdD24XKUFy1w/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbywpDtPo1hD36WCFWfZkjed2HMKPxO8bs5ob3RU9-_06FkEzWZ-ZyrQWTxleE5tywV-lw/exec", {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
