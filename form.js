@@ -35,7 +35,7 @@ function atualizarFormulario() {
     }
     else if (avaliador === "Jurado Palanque 5" || avaliador === "Jurado Palanque 6") {
         aspecto = "Aspecto Percussão";
-        quesitos = ["Afinação", "Ritmo", "Dinâmica", "Técnica Instrumental"];
+        quesitos = ["Afinação", "Ritmo / Precisão Rítmica", "Dinâmica", "Técnica Instrumental"];
     }
     else if (avaliador === "Jurado Uniformidade/Instrumental") {
         aspecto = "Aspecto Uniformidade e Instrumental";
