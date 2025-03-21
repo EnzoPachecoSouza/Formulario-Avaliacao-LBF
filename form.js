@@ -23,8 +23,6 @@ function atualizarFormulario() {
     const aspectoDiv = document.getElementById("aspecto");
     const quesitosDiv = document.getElementById("quesitos");
 
-
-
     aspectoDiv.innerHTML = "";
     quesitosDiv.innerHTML = "";
 
@@ -324,14 +322,6 @@ function enviarAvaliacao(event) {
             document.getElementById("icon-pdf").classList.remove("disabled"); // Habilita o PDF
             document.getElementById("button-send").classList.add("disabled"); // Desabilita o button-send
              
-            // document.getElementById("formulario").reset();
-            //  window.location.href = "comeback.html";
-
-
-            // document.getElementById("corporacao").selectedIndex = 0;
-
-            // Resetando selects e limpando a tela
-            // document.getElementById("corporacao").selectedIndex = 0;
         })
         .catch(error => {
             console.error("❌ Erro ao enviar:", error) 
@@ -357,10 +347,6 @@ function printPDF() {
 
 // Função para resetar o formulário
 function resetForm() {
-    // if (document.getElementById("icon-reset").classList.contains("disabled")) {
-    //     alert("⚠️ Você precisa gerar o PDF antes de resetar!");
-    //     return;
-    // }
 
     document.getElementById("formulario").reset();
     document.getElementById("corporacao").selectedIndex = 0;
