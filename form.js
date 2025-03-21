@@ -10,6 +10,7 @@ function getAvaliador() {
 }
 
 document.getElementById("avaliador").value = getAvaliador();
+document.getElementById("nomeAvaliador").innerHTML = getAvaliador();
 
 function atualizarFormulario() {
 

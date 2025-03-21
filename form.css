@@ -78,6 +78,7 @@ select {
     margin: 15px 0;
     font-size: 14px;
     display: flex;
+    flex-direction: column;
     text-align: center;
     width: 100%;
 }
@@ -87,11 +88,22 @@ select {
     text-align: center;
     width: 20px;
     margin-top: 15px;
+    margin-left: 47%;
 }
 
 .termo label {
     text-align: center;
-    margin-left: 15px;
+    /* margin-left: 15px; */
+    text-align: justify;
+    width: 95%;
+    color: #4d6d85;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+#aceitarTermos{
+    width: 15px;
+    height: 15px;
 }
 
 button {
@@ -223,6 +235,21 @@ button:hover {
     .modal-title{
         font-size: 26px;
     }
+
+    #aceitarTermos{
+        width: 15px;
+        height: 15px;
+    }
+
+    .termo label {
+        /* text-align: center;
+        margin-left: 15px; */
+        text-align: justify;
+        width: 95%;
+        color: #4d6d85;
+        font-weight: 300;
+        font-size: 14px;
+    }
 }
 
 
@@ -292,5 +319,20 @@ button:hover {
 
     .modal-title{
         font-size: 20px;
+    }
+
+    #aceitarTermos{
+        width: 12px;
+        height: 12px;
+    }
+
+    .termo label {
+        /* text-align: center; */
+        /* margin-left: 15px; */
+        text-align: justify;
+        width: 95%;
+        color: #4d6d85;
+        font-weight: 300;
+        font-size: 12px;
     }
 }
