@@ -62,7 +62,7 @@
                 </div>
 
 
-                <button type="button" id="button-send" onclick="enviarAvaliacao(event)">Enviar Avaliação</button>
+                <button type="button" id="button-send" onclick="abrirModalConfirmacao(event)">Enviar Avaliação</button>
 
                 <div class="reset">
                     <i onclick="printPDF()" id="icon-pdf" class="fa-solid fa-file-pdf disabled"></i>
@@ -72,6 +72,17 @@
         </div>
     </div>
     <script src="form.js"></script>
+
+    <!-- Modal de Confirmação -->
+    <div id="modalConfirmacao" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Confirmação da Avaliação</h2>
+            <div id="modalBody"></div>
+            <button onclick="confirmarEnvio()">Sim, enviar</button>
+            <button onclick="fecharModalConfirmacao()">Não, revisar</button>
+        </div>
+    </div>
+
 </body>
 
 </html>
