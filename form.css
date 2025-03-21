@@ -95,7 +95,7 @@ select {
     text-align: center;
     /* margin-left: 15px; */
     text-align: justify;
-    width: 95%;
+    width: 100%;
     color: #4d6d85;
     font-weight: 300;
     font-size: 14px;
@@ -245,7 +245,6 @@ button:hover {
         /* text-align: center;
         margin-left: 15px; */
         text-align: justify;
-        width: 95%;
         color: #4d6d85;
         font-weight: 300;
         font-size: 14px;
@@ -330,7 +329,6 @@ button:hover {
         /* text-align: center; */
         /* margin-left: 15px; */
         text-align: justify;
-        width: 95%;
         color: #4d6d85;
         font-weight: 300;
         font-size: 12px;
