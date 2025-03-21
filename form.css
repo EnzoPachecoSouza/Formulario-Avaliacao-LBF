@@ -118,17 +118,19 @@ button:hover {
     color: #4d6d85;
 }
 
-#icon-reset{
-
-}
 
 .disabled {
     opacity: 0.5;
     pointer-events: none; /* Impede o clique */
 }
 
+#icon-reset{
+    cursor: pointer;
+}
+
 #icon-pdf{
     margin-right: 100px;
+    cursor: pointer;
 }
 
 
