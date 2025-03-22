@@ -26,21 +26,7 @@
             <label for="avaliador">Selecione o Avaliador:</label>
             <input type="text" readonly id="avaliador">
 
-            <!-- <select id="avaliador" onchange="atualizarFormulario()">
-                <option value="">-- Escolha --</option>
-                <option value="Jurado Palanque 1">Jurado Palanque 1</option>
-                <option value="Jurado Palanque 2">Jurado Palanque 2</option>
-                <option value="Jurado Palanque 3">Jurado Palanque 3</option>
-                <option value="Jurado Palanque 4">Jurado Palanque 4</option>
-                <option value="Jurado Palanque 5">Jurado Palanque 5</option>
-                <option value="Jurado Palanque 6">Jurado Palanque 6</option>
-                <option value="Jurado Cronômetro">Jurado Cronômetro</option>
-                <option value="Jurado Faixa Etária">Jurado Faixa Etária</option>
-                <option value="Jurado Check-In">Jurado Check-In</option>
-                <option value="Jurado Uniformidade/Instrumental">Jurado Uniformidade/Instrumental</option>
-            </select>  -->
-
-            <label for="corporacao">Selecione a Corporação:</label>
+            <!-- <label for="corporacao">Selecione a Corporação:</label>
             <select id="corporacao" onchange="atualizarFormulario()">
                 <option value="">-- Escolha --</option>
                 <option value="01 - Banda">01 - Banda</option>
@@ -48,6 +34,12 @@
                 <option value="03 - Banda">03 - Banda</option>
                 <option value="04 - Banda">04 - Banda</option>
                 <option value="05 - Banda">05 - Banda</option>
+            </select> -->
+
+            <label for="corporacao">Selecione a Corporação:</label>
+            <select id="corporacao" onchange="atualizarFormulario()">
+                <option value="">-- Escolha --</option>
+                <!-- As opções serão preenchidas dinamicamente via JavaScript -->
             </select>
 
             <div id="aspecto">
@@ -59,9 +51,10 @@
                 <h4>Termo de Veracidade</h4>
 
                 <div class="termo">
-                    <label for="aceitarTermos"> <input type="checkbox" id="aceitarTermos" required>Eu,  <strong id="nomeAvaliador"></strong>, DECLARO, para fins de direito, sob as penas da lei, que as
+                    <label for="aceitarTermos"> <input type="checkbox" id="aceitarTermos" required>Eu, <strong
+                            id="nomeAvaliador"></strong>, DECLARO, para fins de direito, sob as penas da lei, que as
                         informações que apresento são verdadeiros e autênticos (fieis à verdade e condizentes com a
-                        realidade dos fatos)</label> 
+                        realidade dos fatos)</label>
                 </div>
 
 
@@ -87,7 +80,7 @@
     </div>
 
 
-    
+
 </body>
 
 </html>

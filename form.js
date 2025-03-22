@@ -1,4 +1,9 @@
+// document.addEventListener("DOMContentLoaded", function () {
+//     resetForm();
+// });
+
 document.addEventListener("DOMContentLoaded", function () {
+    atualizarSeletorBandas();
     resetForm();
 });
 
@@ -296,6 +301,78 @@ function confirmarEnvio() {
     enviarAvaliacao(); // Chama a função de envio real
 }
 
+// function enviarAvaliacao() {
+//     let avaliador = getAvaliador();
+//     let corporacao = document.getElementById("corporacao").value;
+    
+//     if (!avaliador) {
+//         alert("⚠️ Selecione um avaliador antes de enviar.");
+//         return;
+//     }
+    
+//     if (!corporacao) {
+//         alert("⚠️ Selecione a corporação antes de enviar.");
+//         return;
+//     }
+
+//     let dados = { avaliador, corporacao };
+//     let camposInvalidos = false;
+
+//     // Captura todos os inputs e selects dentro da div "quesitos"
+//     const inputs = document.querySelectorAll("#quesitos input, #quesitos select");
+
+//     inputs.forEach((input) => {
+//         let nomeCampo = input.name; // Nome do quesito
+//         let valorCampo = input.value.trim();
+
+//         if (input.type === "number") {
+//             let valor = valorCampo === "" ? NaN : parseFloat(valorCampo);
+//             if (isNaN(valor) || valor < 0 || valor > 10) {
+//                 alert(`⚠️ O valor do campo "${nomeCampo}" deve estar entre 0 e 10.`);
+//                 camposInvalidos = true;
+//                 return;
+//             }
+//             dados[nomeCampo] = valor; // Adiciona ao objeto de dados
+//         } else {
+//             if (valorCampo === "") {
+//                 if (avaliador === "Dados de Apresentação" && nomeCampo === "quesito2") {
+//                     // Exceção para esse caso específico
+//                 } else {
+//                     alert(`⚠️ O campo "${nomeCampo}" não pode estar vazio.`);
+//                     camposInvalidos = true;
+//                     return;
+//                 }
+//             }
+//             dados[nomeCampo] = valorCampo; // Adiciona ao objeto de dados
+//         }
+//     });
+
+//     // Se houver campos inválidos, interrompe o envio
+//     if (camposInvalidos) return;
+
+//     console.log("✅ Dados enviados:", dados);
+
+//     document.getElementById("button-send").classList.add("disabled");
+
+//     fetch("https://script.google.com/macros/s/AKfycbzqHpyCGi8D-D-N6U-vlX5l2UQdQOPdCt9sYQ8RKdpSIYlwBn0dAKKYRFyuwX93xBpC4A/exec", {
+//         method: "POST",
+//         mode: "no-cors",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify(dados)
+//     })
+//     .then(() => {
+//         alert("✅ Avaliação enviada com sucesso!");
+//         document.getElementById("icon-pdf").classList.remove("disabled");
+//         document.getElementById("button-send").classList.add("disabled");
+//         desabilitarCampos();
+//     })
+//     .catch(error => {
+//         console.error("❌ Erro ao enviar:", error);
+//         document.getElementById("button-send").classList.remove("disabled");
+//     });
+// }
+
+
 function enviarAvaliacao() {
     let avaliador = getAvaliador();
     let corporacao = document.getElementById("corporacao").value;
@@ -349,6 +426,13 @@ function enviarAvaliacao() {
 
     document.getElementById("button-send").classList.add("disabled");
 
+    // Armazena a banda avaliada no localStorage
+    const bandasAvaliadas = JSON.parse(localStorage.getItem(`bandasAvaliadas_${avaliador}`)) || [];
+    if (!bandasAvaliadas.includes(corporacao)) {
+        bandasAvaliadas.push(corporacao);
+        localStorage.setItem(`bandasAvaliadas_${avaliador}`, JSON.stringify(bandasAvaliadas));
+    }
+
     fetch("https://script.google.com/macros/s/AKfycbzqHpyCGi8D-D-N6U-vlX5l2UQdQOPdCt9sYQ8RKdpSIYlwBn0dAKKYRFyuwX93xBpC4A/exec", {
         method: "POST",
         mode: "no-cors",
@@ -367,96 +451,36 @@ function enviarAvaliacao() {
     });
 }
 
+function atualizarSeletorBandas() {
+    const avaliador = getAvaliador();
+    const seletor = document.getElementById("corporacao");
 
+    // Limpa o seletor
+    seletor.innerHTML = '<option value="">-- Escolha --</option>';
 
+    // Obtém as bandas já avaliadas pelo avaliador
+    const bandasAvaliadas = JSON.parse(localStorage.getItem(`bandasAvaliadas_${avaliador}`)) || [];
 
-// function enviarAvaliacao(event) {
-//     event.preventDefault(); // Evita o envio automático do formulário
+    // Filtra as bandas disponíveis
+    const bandasNaoAvaliadas = bandasDisponiveis.filter(banda => !bandasAvaliadas.includes(banda));
 
-    
+    // Adiciona as bandas não avaliadas ao seletor
+    bandasNaoAvaliadas.forEach(banda => {
+        const option = document.createElement("option");
+        option.value = banda;
+        option.textContent = banda;
+        seletor.appendChild(option);
+    });
+}
 
-//     const avaliador = getAvaliador();
-//     const corporacao = document.getElementById("corporacao").value;
-//     const termosAceitos = document.getElementById("aceitarTermos").checked;
+const bandasDisponiveis = [
+    "01 - Banda",
+    "02 - Banda",
+    "03 - Banda",
+    "04 - Banda",
+    "05 - Banda"
+];
 
-//     if (!avaliador) {
-//         alert("⚠️ Selecione um avaliador antes de enviar.");
-//         return;
-//     }
-
-//     if (!corporacao) {
-//         alert("⚠️ Selecione a corporação antes de enviar.");
-//         return;
-//     }
-
-//     if (!termosAceitos) {
-//         alert("⚠️ Você deve aceitar os termos antes de enviar a avaliação.");
-//         return;
-//     }
-
-
-//     let dados = { avaliador, corporacao };
-//     let camposInvalidos = false;
-//     // let notas = [];
-
-//     // Captura todos os inputs e selects dentro da div "quesitos"
-//     const inputs = document.querySelectorAll("#quesitos input, #quesitos select");
-
-//     inputs.forEach((input) => {
-
-//         let nomeCampo = input.name; // Exemplo: "quesito1"
-//         let valorCampo = input.value.trim();
-
-//         if (input.type === "number") {
-//             let valor = valorCampo === "" ? NaN : parseFloat(valorCampo);
-//             if (isNaN(valor) || valor < 0 || valor > 10) {
-//                 alert(`⚠️ O valor do campo "${nomeCampo}" deve estar entre 0 e 10.`);
-//                 camposInvalidos = true;
-//                 return;
-//             }
-//             dados[nomeCampo] = valor; // Adiciona ao objeto dados
-//         } else {
-            
-//             if (valorCampo === "") {
-//                 if(avaliador === "Dados de Apresentação" && nomeCampo === "quesito2") {
-
-//                 } else{
-//                     alert(`⚠️ O campo "${nomeCampo}" não pode estar vazio.`);
-//                     camposInvalidos = true;
-//                     return;
-//                 }
-//             }
-//             dados[nomeCampo] = valorCampo; // Adiciona ao objeto dados
-//         }
-//     });
-
-//     if (camposInvalidos) return;
-
-//     console.log("✅ Dados enviados:", dados);
-
-//     document.getElementById("button-send").classList.add("disabled"); // Desabilita o button-send
-
-//     fetch("https://script.google.com/macros/s/AKfycbywpDtPo1hD36WCFWfZkjed2HMKPxO8bs5ob3RU9-_06FkEzWZ-ZyrQWTxleE5tywV-lw/exec", {
-//         method: "POST",
-//         mode: "no-cors",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify(dados)
-//     })
-//         .then(() => {
-//             alert("✅ Avaliação enviada com sucesso!");
-
-//             document.getElementById("icon-pdf").classList.remove("disabled"); // Habilita o PDF
-//             document.getElementById("button-send").classList.add("disabled"); // Desabilita o button-send
-//             desabilitarCampos();
-             
-//         })
-//         .catch(error => {
-//             console.error("❌ Erro ao enviar:", error) 
-
-//             document.getElementById("button-send").classList.remove("disabled"); // Desabilita o button-send
-//         });
-
-// }
 
 function desabilitarCampos() {
     // Seleciona todos os inputs e selects
@@ -504,6 +528,7 @@ function resetForm() {
     document.getElementById("button-send").classList.remove("disabled"); // Desabilita o button-send
 
     habibilitarCampos();
+    atualizarSeletorBandas(); // Atualiza o seletor após o envio
 }
 
 
