@@ -2,18 +2,18 @@ function verificarLogin(event) {
     event.preventDefault();
 
     const usuarios = [
-        { nome: "Jurado Palanque 1", email: "juradopalanque1@applbf.org", senha: "1234" },
-        { nome: "Jurado Palanque 2", email: "juradopalanque2@applbf.org", senha: "1234" },
-        { nome: "Jurado Palanque 3", email: "juradopalanque3@applbf.org", senha: "1234" },
-        { nome: "Jurado Palanque 4", email: "juradopalanque4@applbf.org", senha: "1234" },
-        { nome: "Jurado Palanque 5", email: "juradopalanque5@applbf.org", senha: "1234" },
-        { nome: "Jurado Palanque 6", email: "juradopalanque6@applbf.org", senha: "1234" },
-        { nome: "Jurado Uniformidade/Instrumental", email: "juradouniformidadeinstrumental@applbf.org", senha: "1234" },
-        { nome: "Jurado Check-In", email: "juradocheckin@applbf.org", senha: "1234" },
-        { nome: "Jurado Cronômetro", email: "juradocronometro@applbf.org", senha: "1234" },
-        { nome: "Jurado Check List", email: "juradochecklist@applbf.org", senha: "1234" },
+        { nome: "Avaliador 1", email: "avaliador1@applbf.org", senha: "1234@" },
+        { nome: "Avaliador 2", email: "avaliador2@applbf.org", senha: "1234@" },
+        { nome: "Avaliador 3", email: "avaliador3@applbf.org", senha: "1234@" },
+        { nome: "Avaliador 4", email: "avaliador4@applbf.org", senha: "1234@" },
+        { nome: "Avaliador 5", email: "avaliador5@applbf.org", senha: "1234@" },
+        { nome: "Avaliador 6", email: "avaliador6@applbf.org", senha: "1234@" },
+        { nome: "Avaliador Uniformidade/Instrumental", email: "avaliadoruniformidadeinstrumental@applbf.org", senha: "1234" },
+        { nome: "Avaliador Check-In", email: "avaliadorcheckin@applbf.org", senha: "1234" },
+        { nome: "Avaliador Cronômetro", email: "avaliadorcronometro@applbf.org", senha: "1234" },
+        { nome: "Avaliador Check List", email: "avaliadorchecklist@applbf.org", senha: "1234" },
         { nome: "Dados de Apresentação", email: "dados@applbf.org", senha: "1234" },
-        { nome: "Jurado Faixa Etária", email: "juradofaixaetaria@applbf.org", senha: "1234" }
+        { nome: "Avaliador Faixa Etária", email: "avaliadorfaixaetaria@applbf.org", senha: "1234" }
     ];
 
     const email = document.getElementById("email").value;

@@ -31,35 +31,35 @@ function atualizarFormulario() {
 
     console.log("atualizou");
 
-    if (avaliador === "Jurado Palanque 1" || avaliador === "Jurado Palanque 2") {
+    if (avaliador === "Avaliador 1" || avaliador === "Avaliador 2") {
         aspecto = "Aspecto de Sopro";
         quesitos = ["Afinação", "Ritmo", "Dinâmica", "Articulação"];
     }
-    else if (avaliador === "Jurado Palanque 3" || avaliador === "Jurado Palanque 4") {
+    else if (avaliador === "Avaliador 3" || avaliador === "Avaliador 4") {
         aspecto = "Aspecto Interpretação";
         quesitos = ["Fraseado", "Expressão", "Regência", "Escolha de Repertório"];
     }
-    else if (avaliador === "Jurado Palanque 5" || avaliador === "Jurado Palanque 6") {
+    else if (avaliador === "Avaliador 5" || avaliador === "Avaliador 6") {
         aspecto = "Aspecto Percussão";
         quesitos = ["Afinação", "Ritmo / Precisão Rítmica", "Dinâmica", "Técnica Instrumental"];
     }
-    else if (avaliador === "Jurado Uniformidade/Instrumental") {
+    else if (avaliador === "Avaliador Uniformidade/Instrumental") {
         aspecto = "Aspecto Uniformidade e Instrumental";
         quesitos = ["Uniformidade", "Instrumental"];
     }
-    else if (avaliador === "Jurado Check-In") {
+    else if (avaliador === "Avaliador Check-In") {
         aspecto = "Aspecto Check-In";
         quesitos = ["Check-in Correto", "Horário Feito", "A corporação seguiu a ordem de apresentação?", "Maestro(a)", "CPF"];
     }
-    else if (avaliador === "Jurado Cronômetro") {
+    else if (avaliador === "Avaliador Cronômetro") {
         aspecto = "Aspecto Cronômetro";
         quesitos = ["Tempo de Apresentação", "Estourou o Tempo?", "", "Maestro(a)", "CPF"];
     }
-    else if (avaliador === "Jurado Faixa Etária") {
+    else if (avaliador === "Avaliador Faixa Etária") {
         aspecto = "Aspecto Faixa Etária";
         quesitos = ["Quantidade de Integrantes", "Possui membros acima da idade?", "",  "Maestro(a)", "CPF"];
     }
-    else if (avaliador === "Jurado Check List") {
+    else if (avaliador === "Avaliador Check List") {
         aspecto = "Aspecto Check List";
         quesitos = [
             "A corporação apresentou faixa, estandarte ou distintivo conforme regulamento?", 
@@ -433,7 +433,7 @@ function enviarAvaliacao() {
         localStorage.setItem(`bandasAvaliadas_${avaliador}`, JSON.stringify(bandasAvaliadas));
     }
 
-    fetch("https://script.google.com/macros/s/AKfycbzqHpyCGi8D-D-N6U-vlX5l2UQdQOPdCt9sYQ8RKdpSIYlwBn0dAKKYRFyuwX93xBpC4A/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbxKqxIGUG_FRCs1aQ1dRRSjzmND8EOhWtWPfcUIAyQQILdiZ-woDunJyZNFvrW6Sk7c7A/exec", {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
