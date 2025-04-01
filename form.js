@@ -1,7 +1,3 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//     resetForm();
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
     atualizarSeletorBandas();
     resetForm();
@@ -57,12 +53,12 @@ function atualizarFormulario() {
     }
     else if (avaliador === "Avaliador Faixa Etária") {
         aspecto = "Aspecto Faixa Etária";
-        quesitos = ["Quantidade de Integrantes", "Possui membros acima da idade?", "",  "Maestro(a)", "CPF"];
+        quesitos = ["Quantidade de Integrantes", "Possui membros acima da idade?", "", "Maestro(a)", "CPF"];
     }
     else if (avaliador === "Avaliador Check List") {
         aspecto = "Aspecto Check List";
         quesitos = [
-            "A corporação apresentou faixa, estandarte ou distintivo conforme regulamento?", 
+            "A corporação apresentou faixa, estandarte ou distintivo conforme regulamento?",
             "O Instrumental está dentro do esperado na categoria?",
             "A Percussão esta menor que 50 %?",
             "A Banda Musical de Concerto possui os instrumentos mínimos obrigatórios?",
@@ -73,9 +69,9 @@ function atualizarFormulario() {
     else if (avaliador === "Dados de Apresentação") {
         aspecto = "Dados de Apresentação";
         quesitos = [
-            "Nome do 1º Regente", 
-            "Nome do 2º Regente", 
-            "Peça de Aquecimento", 
+            "Nome do 1º Regente",
+            "Nome do 2º Regente",
+            "Peça de Aquecimento",
             "Peça de Confronto"
         ];
     }
@@ -109,13 +105,16 @@ function atualizarFormulario() {
                     <option value="Não">Não</option>
                 </select><br>
             `;
-            } else if(index === 1){// Para os outros quesitos
+            } else if (index === 1) {// Para os outros quesitos
                 let placeholderText = index === 1 ? "Exemplo: 11:40" : "";
+                // quesitosDiv.innerHTML += `
+                // <label for="quesito${index + 1}">${q}:</label>
+                // <input type="text" id="quesito${index + 1}" name="quesito${index + 1}" placeholder="${placeholderText}" required><br>
                 quesitosDiv.innerHTML += `
                 <label for="quesito${index + 1}">${q}:</label>
-                <input type="text" id="quesito${index + 1}" name="quesito${index + 1}" placeholder="${placeholderText}" required><br>
+                <input type="time" id="quesito${index + 1}" name="quesito${index + 1}" min="00:00" placeholder="${placeholderText}" required><br>
             `;
-            }else if (index === 2) { // Para o primeiro quesito (Check-in Correto)
+            } else if (index === 2) { // Para o primeiro quesito (Check-in Correto)
                 quesitosDiv.innerHTML += `
                 <label for="quesito${index + 1}">${q}</label>
                 <select id="quesito${index + 1}" name="quesito${index + 1}" required>
@@ -124,7 +123,7 @@ function atualizarFormulario() {
                     <option value="Não">Não</option>
                 </select><br>
             `;
-            }else{
+            } else {
                 quesitosDiv.innerHTML += `
                 <label for="quesito${index + 1}">${q}:</label>
                 <input type="text" id="quesito${index + 1}" name="quesito${index + 1}" required><br>
@@ -135,9 +134,13 @@ function atualizarFormulario() {
     else if (aspecto === "Aspecto Cronômetro") {
         aspectoDiv.innerHTML = `<h3>${aspecto}</h3>`;
 
+        // quesitosDiv.innerHTML = `
+        //     <label for="quesito1">${quesitos[0]}:</label>
+        //     <input type="text" id="quesito1" name="quesito1" placeholder="Exemplo: 05:30" required><br>
+
         quesitosDiv.innerHTML = `
             <label for="quesito1">${quesitos[0]}:</label>
-            <input type="text" id="quesito1" name="quesito1" placeholder="Exemplo: 05:30" required><br>
+            <input type="time" id="quesito1" name="quesito1" min="00:00" required><br>
             
             <label for="quesito2">${quesitos[1]}:</label>
             <select id="quesito2" name="quesito2" required onchange="verificarEstouro()">
@@ -148,7 +151,7 @@ function atualizarFormulario() {
     
             <div id="campoEstouro" style="display: none;">
                 <label for="quesito3">Quanto tempo estourou?</label>
-                <input type="text" id="quesito3" name="quesito3" placeholder="Exemplo: 00:30" disabled><br>
+                <input type="time" id="quesito3" name="quesito3" min="00:00" disabled><br>
             </div>
 
             <label for="quesito1">${quesitos[3]}:</label>
@@ -182,20 +185,21 @@ function atualizarFormulario() {
             <label for="quesito1">${quesitos[4]}:</label>
             <input type="text" id="quesito5" name="quesito5" required><br>
         `;
-    } else if(aspecto === "Aspecto Check List"){ 
+    } else if (aspecto === "Aspecto Check List") {
         //lógica do aspecto check list
         aspectoDiv.innerHTML = `<h3>${aspecto}</h3>`;
         quesitos.forEach((q, index) => {
             // Para o primeiro quesito (Check-in Correto)
-                quesitosDiv.innerHTML += `
+            quesitosDiv.innerHTML += `
                 <label class="label-checkList" for="quesito${index + 1}">${q}</label>
                 <select id="quesito${index + 1}" name="quesito${index + 1}" required>
                     <option value="">Selecione</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
                 </select><br>
-            `;})
-    } else if(aspecto === "Dados de Apresentação"){ 
+            `;
+        })
+    } else if (aspecto === "Dados de Apresentação") {
         //lógica do aspecto Dados de Apresentação
         aspectoDiv.innerHTML = `<h3>${aspecto}</h3>`;
         quesitos.forEach((q, index) => {
@@ -301,87 +305,16 @@ function confirmarEnvio() {
     enviarAvaliacao(); // Chama a função de envio real
 }
 
-// function enviarAvaliacao() {
-//     let avaliador = getAvaliador();
-//     let corporacao = document.getElementById("corporacao").value;
-    
-//     if (!avaliador) {
-//         alert("⚠️ Selecione um avaliador antes de enviar.");
-//         return;
-//     }
-    
-//     if (!corporacao) {
-//         alert("⚠️ Selecione a corporação antes de enviar.");
-//         return;
-//     }
-
-//     let dados = { avaliador, corporacao };
-//     let camposInvalidos = false;
-
-//     // Captura todos os inputs e selects dentro da div "quesitos"
-//     const inputs = document.querySelectorAll("#quesitos input, #quesitos select");
-
-//     inputs.forEach((input) => {
-//         let nomeCampo = input.name; // Nome do quesito
-//         let valorCampo = input.value.trim();
-
-//         if (input.type === "number") {
-//             let valor = valorCampo === "" ? NaN : parseFloat(valorCampo);
-//             if (isNaN(valor) || valor < 0 || valor > 10) {
-//                 alert(`⚠️ O valor do campo "${nomeCampo}" deve estar entre 0 e 10.`);
-//                 camposInvalidos = true;
-//                 return;
-//             }
-//             dados[nomeCampo] = valor; // Adiciona ao objeto de dados
-//         } else {
-//             if (valorCampo === "") {
-//                 if (avaliador === "Dados de Apresentação" && nomeCampo === "quesito2") {
-//                     // Exceção para esse caso específico
-//                 } else {
-//                     alert(`⚠️ O campo "${nomeCampo}" não pode estar vazio.`);
-//                     camposInvalidos = true;
-//                     return;
-//                 }
-//             }
-//             dados[nomeCampo] = valorCampo; // Adiciona ao objeto de dados
-//         }
-//     });
-
-//     // Se houver campos inválidos, interrompe o envio
-//     if (camposInvalidos) return;
-
-//     console.log("✅ Dados enviados:", dados);
-
-//     document.getElementById("button-send").classList.add("disabled");
-
-//     fetch("https://script.google.com/macros/s/AKfycbzqHpyCGi8D-D-N6U-vlX5l2UQdQOPdCt9sYQ8RKdpSIYlwBn0dAKKYRFyuwX93xBpC4A/exec", {
-//         method: "POST",
-//         mode: "no-cors",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify(dados)
-//     })
-//     .then(() => {
-//         alert("✅ Avaliação enviada com sucesso!");
-//         document.getElementById("icon-pdf").classList.remove("disabled");
-//         document.getElementById("button-send").classList.add("disabled");
-//         desabilitarCampos();
-//     })
-//     .catch(error => {
-//         console.error("❌ Erro ao enviar:", error);
-//         document.getElementById("button-send").classList.remove("disabled");
-//     });
-// }
-
 
 function enviarAvaliacao() {
     let avaliador = getAvaliador();
     let corporacao = document.getElementById("corporacao").value;
-    
+
     if (!avaliador) {
         alert("⚠️ Selecione um avaliador antes de enviar.");
         return;
     }
-    
+
     if (!corporacao) {
         alert("⚠️ Selecione a corporação antes de enviar.");
         return;
@@ -439,16 +372,16 @@ function enviarAvaliacao() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(dados)
     })
-    .then(() => {
-        alert("✅ Avaliação enviada com sucesso!");
-        document.getElementById("icon-pdf").classList.remove("disabled");
-        document.getElementById("button-send").classList.add("disabled");
-        desabilitarCampos();
-    })
-    .catch(error => {
-        console.error("❌ Erro ao enviar:", error);
-        document.getElementById("button-send").classList.remove("disabled");
-    });
+        .then(() => {
+            alert("✅ Avaliação enviada com sucesso!");
+            document.getElementById("icon-pdf").classList.remove("disabled");
+            document.getElementById("button-send").classList.add("disabled");
+            desabilitarCampos();
+        })
+        .catch(error => {
+            console.error("❌ Erro ao enviar:", error);
+            document.getElementById("button-send").classList.remove("disabled");
+        });
 }
 
 function atualizarSeletorBandas() {
@@ -513,7 +446,7 @@ function printPDF() {
 
     // Habilita o botão de reset após gerar o PDF
     document.getElementById("icon-reset").classList.remove("disabled");
-    
+
 }
 
 // Função para resetar o formulário
