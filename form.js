@@ -43,7 +43,7 @@ function atualizarFormulario() {
         aspecto = "Aspecto Uniformidade e Instrumental";
         quesitos = ["Uniformidade", "Instrumental"];
     }
-    else if (avaliador === "Avaliador Check-In") {
+    else if (avaliador === "Daniel Borges") {
         aspecto = "Aspecto Check-In";
         quesitos = ["Check-in Correto", "Horário Feito", "A corporação seguiu a ordem de apresentação?", "Maestro(a)", "CPF"];
     }
@@ -51,7 +51,7 @@ function atualizarFormulario() {
         aspecto = "Aspecto Cronômetro";
         quesitos = ["Tempo de Apresentação", "Estourou o Tempo?", "", "Maestro(a)", "CPF"];
     }
-    else if (avaliador === "Avaliador Faixa Etária") {
+    else if (avaliador === "Maria Júlia Ribeiro") {
         aspecto = "Aspecto Faixa Etária";
         quesitos = ["Quantidade de Integrantes", "Possui membros acima da idade?", "", "Maestro(a)", "CPF"];
     }
