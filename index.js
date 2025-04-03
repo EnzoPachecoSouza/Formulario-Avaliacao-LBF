@@ -2,18 +2,19 @@ function verificarLogin(event) {
     event.preventDefault();
 
     const usuarios = [
-        { nome: "Avaliador 1", email: "avaliador1@applbf.org", senha: "1234@" },
-        { nome: "Avaliador 2", email: "avaliador2@applbf.org", senha: "1234@" },
-        { nome: "Avaliador 3", email: "avaliador3@applbf.org", senha: "1234@" },
-        { nome: "Avaliador 4", email: "avaliador4@applbf.org", senha: "1234@" },
-        { nome: "Avaliador 5", email: "avaliador5@applbf.org", senha: "1234@" },
-        { nome: "Avaliador 6", email: "avaliador6@applbf.org", senha: "1234@" },
-        { nome: "Avaliador Uniformidade/Instrumental", email: "avaliadoruniformidadeinstrumental@applbf.org", senha: "1234" },
-        { nome: "Avaliador Check-In", email: "avaliadorcheckin@applbf.org", senha: "1234" },
-        { nome: "Avaliador Cronômetro", email: "avaliadorcronometro@applbf.org", senha: "1234" },
-        { nome: "Avaliador Check List", email: "avaliadorchecklist@applbf.org", senha: "1234" },
-        { nome: "Dados de Apresentação", email: "dados@applbf.org", senha: "1234" },
-        { nome: "Avaliador Faixa Etária", email: "avaliadorfaixaetaria@applbf.org", senha: "1234" }
+        { nome: "Avaliador Teste", email: "teste@applbf.org", senha: "teste1234@" },//teste
+        { nome: "Marcelo Bambam", email: "marcelobambam@applbf.org", senha: "Mb1234@" },//sopro
+        { nome: "Jorge Scheffer", email: "jorgescheffer@applbf.org", senha: "Js1324@" },//sopro
+        { nome: "Marco Almeida", email: "marcoalmeida@applbf.org", senha: "Ma1423@" },//interpretacao
+        { nome: "Marcos Sadao", email: "marcossadao@applbf.org", senha: "Ms1243@" },//interpretacao
+        { nome: "Hércules Alves", email: "herculesalves@applbf.org", senha: "Ha3214@" },//percussao
+        { nome: "Luis Caldana", email: "luiscaldana@applbf.org", senha: "Lc4231@" },//percussao
+        { nome: "Jandir Souto", email: "jandirsouto@applbf.org", senha: "Js2453#" }, //uniformidade e instrumental
+        { nome: "Avaliador Check-In", email: "avaliadorcheckin@applbf.org", senha: "1234" }, //checkin
+        { nome: "Leandro Simplício", email: "leandrosimplicio@applbf.org", senha: "Ls5768#" },//cronometro
+        { nome: "Ewerton Ravelli", email: "ewertonravelli@applbf.org", senha: "Er5678#" }, //checklist
+        { nome: "Avaliador Faixa Etária", email: "avaliadorfaixaetaria@applbf.org", senha: "1234" }, //faixa etária
+        { nome: "Dados de Apresentação", email: "dados@applbf.org", senha: "1234*" } //dados de apresentação 
     ];
 
     const email = document.getElementById("email").value;
