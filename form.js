@@ -27,15 +27,15 @@ function atualizarFormulario() {
 
     console.log("atualizou");
 
-    if (avaliador === "Avaliador Teste" || avaliador === "Marcelo Bambam" || avaliador === "Jorge Scheffer") {
+    if (avaliador === "Avaliador Teste 1" || avaliador === "Marcelo Bambam" || avaliador === "Jorge Scheffer") {
         aspecto = "Aspecto de Sopro";
         quesitos = ["Afinação", "Ritmo", "Dinâmica", "Articulação"];
     }
-    else if (avaliador === "Marco Almeida" || avaliador === "Marcos Sadao") {
+    else if (avaliador === "Avaliador Teste 2" || avaliador === "Marco Almeida" || avaliador === "Marcos Sadao") {
         aspecto = "Aspecto Interpretação";
         quesitos = ["Fraseado", "Expressão", "Regência", "Escolha de Repertório"];
     }
-    else if (avaliador === "Hércules Alves" || avaliador === "Luis Caldana") {
+    else if (avaliador === "Avaliador Teste 3" || avaliador === "Hércules Alves" || avaliador === "Luis Caldana") {
         aspecto = "Aspecto Percussão";
         quesitos = ["Afinação", "Ritmo / Precisão Rítmica", "Dinâmica", "Técnica Instrumental"];
     }

@@ -2,7 +2,9 @@ function verificarLogin(event) {
     event.preventDefault();
 
     const usuarios = [
-        { nome: "Avaliador Teste", email: "teste@applbf.org", senha: "teste1234@" },//teste
+        { nome: "Avaliador Teste 1", email: "teste1@applbf.org", senha: "teste1234@" },//teste
+        { nome: "Avaliador Teste 2", email: "teste2@applbf.org", senha: "teste1234@" },//teste
+        { nome: "Avaliador Teste 3", email: "teste3@applbf.org", senha: "teste1234@" },//teste
         { nome: "Marcelo Bambam", email: "marcelobambam@applbf.org", senha: "Mb1234@" },//sopro
         { nome: "Jorge Scheffer", email: "jorgescheffer@applbf.org", senha: "Js1324@" },//sopro
         { nome: "Marco Almeida", email: "marcoalmeida@applbf.org", senha: "Ma1423@" },//interpretacao
