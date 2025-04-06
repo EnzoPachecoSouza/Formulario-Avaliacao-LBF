@@ -408,7 +408,7 @@ function atualizarSeletorBandas() {
 
 const bandasDisponiveis = [
     // "10 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
-    "11 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
+    // "11 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
     "12 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
     "13 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
     "14 • ETEAAS - Campo dos Goytacazes/RJ",
