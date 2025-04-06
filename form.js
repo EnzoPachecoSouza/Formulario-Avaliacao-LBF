@@ -407,15 +407,16 @@ function atualizarSeletorBandas() {
 }
 
 const bandasDisponiveis = [
-    "01 • Colégio Mônaco - Votorantim/SP",
-    "02 • Banda Municipal de Caldas - Caldas/MG",
-    "03 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
-    "04 • Orquestra Municipal de Santo Antônio de Posse - Sto Antônio de Posse/SP",
-    "05 • Colégio Mônaco - Votorantim/SP",
-    "06 • Inst. de Ensino Marquês de Monte Alegre/SP",
-    "07 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
-    "08 • Marista PIO Xll - Ponta Grossa/PR",
-    "09 • Banda Municipal de Botelhos - Botelhos/MG"
+    "10 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
+    "11 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
+    "12 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
+    "13 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
+    "14 • ETEAAS - Campo dos Goytacazes/RJ",
+    "15 • Lyra Bragança - Bragança Paulista/SP",
+    "16 • Marista PIO Xll - Ponta Grossa/PR",
+    "17 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
+    "18 • Orquestra Popular de Ilhabela - Ilhabelha/SP",
+    "19 • BAMMA - Banda Sinfônica da Escola das Artes - Amparo/SP"
 ];
 
 
