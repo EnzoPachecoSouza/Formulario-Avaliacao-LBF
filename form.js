@@ -366,7 +366,7 @@ function enviarAvaliacao() {
         localStorage.setItem(`bandasAvaliadas_${avaliador}`, JSON.stringify(bandasAvaliadas));
     }
 
-    fetch("https://script.google.com/macros/s/AKfycby3hFvunaCkrDZp3uHNlpnwb8hYQD56tiQzvDuvR3ZKxHiuQCIF89gY9KOIFwrNoAZ1wQ/exec", {
+    fetch("https://script.google.com/macros/s/AKfycby4LYPI907nbh26pCd6QqgoX1Pu1R8LdxOG7NsiJtgEzECD6uxyF5UqTT96Lo7B_0Q1Fg/exec", {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
