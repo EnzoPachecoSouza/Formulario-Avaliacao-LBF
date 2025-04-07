@@ -1,19 +1,20 @@
 function verificarLogin(event) {
     event.preventDefault();
 
-    const usuarios = [  
-        { nome: "Marcelo Bambam", email: "marcelobambam@applbf.org", senha: "Mb1234@" },//sopro
-        { nome: "Jorge Scheffer", email: "jorgescheffer@applbf.org", senha: "Js1324@" },//sopro
-        { nome: "Marco Almeida", email: "marcoalmeida@applbf.org", senha: "Ma1423@" },//interpretacao
-        { nome: "Marcos Sadao", email: "marcossadao@applbf.org", senha: "Ms1243@" },//interpretacao
-        { nome: "Hércules Alves", email: "herculesalves@applbf.org", senha: "Ha3214@" },//percussao
-        { nome: "Luis Caldana", email: "luiscaldana@applbf.org", senha: "Lc4231@" },//percussao
-        { nome: "Jandir Souto", email: "jandirsouto@applbf.org", senha: "Js2453#" }, //uniformidade e instrumental
-        { nome: "Daniel Borges", email: "danielborges@applbf.org", senha: "Db8657#" }, //checkin
-        { nome: "Leandro Simplício", email: "leandrosimplicio@applbf.org", senha: "Ls5768#" },//cronometro
-        { nome: "Ewerton Ravelli", email: "ewertonravelli@applbf.org", senha: "Er5678#" }, //checklist
-        { nome: "Maria Júlia Ribeiro", email: "majuribeiro@applbf.org", senha: "Mjr9087#" }, //faixa etária
-        { nome: "Dados de Apresentação", email: "dados@applbf.org", senha: "1234*" } //dados de apresentação 
+    const usuarios = [
+        { nome: "Teste", email: "teste@teste.com", senha: "teste" }, 
+        // { nome: "Marcelo Bambam", email: "marcelobambam@applbf.org", senha: "Mb1234@" },//sopro
+        // { nome: "Jorge Scheffer", email: "jorgescheffer@applbf.org", senha: "Js1324@" },//sopro
+        // { nome: "Marco Almeida", email: "marcoalmeida@applbf.org", senha: "Ma1423@" },//interpretacao
+        // { nome: "Marcos Sadao", email: "marcossadao@applbf.org", senha: "Ms1243@" },//interpretacao
+        // { nome: "Hércules Alves", email: "herculesalves@applbf.org", senha: "Ha3214@" },//percussao
+        // { nome: "Luis Caldana", email: "luiscaldana@applbf.org", senha: "Lc4231@" },//percussao
+        // { nome: "Jandir Souto", email: "jandirsouto@applbf.org", senha: "Js2453#" }, //uniformidade e instrumental
+        // { nome: "Daniel Borges", email: "danielborges@applbf.org", senha: "Db8657#" }, //checkin
+        // { nome: "Leandro Simplício", email: "leandrosimplicio@applbf.org", senha: "Ls5768#" },//cronometro
+        // { nome: "Ewerton Ravelli", email: "ewertonravelli@applbf.org", senha: "Er5678#" }, //checklist
+        // { nome: "Maria Júlia Ribeiro", email: "majuribeiro@applbf.org", senha: "Mjr9087#" }, //faixa etária
+        // { nome: "Dados de Apresentação", email: "dados@applbf.org", senha: "1234*" } //dados de apresentação 
     ];
 
     const email = document.getElementById("email").value;
