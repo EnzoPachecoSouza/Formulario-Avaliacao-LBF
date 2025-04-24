@@ -407,16 +407,15 @@ function atualizarSeletorBandas() {
 }
 
 const bandasDisponiveis = [
-    // "10 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
-    // "11 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
-    // "12 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
-    // "13 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
-    // // "14 • ETEAAS - Campo dos Goytacazes/RJ",
-    // "15 • Lyra Bragança - Bragança Paulista/SP",
-    // "16 • Marista PIO Xll - Ponta Grossa/PR",
-    // "17 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
-    // "18 • Orquestra Popular de Ilhabela - Ilhabelha/SP",
-    // "19 • BAMMA - Banda Sinfônica da Escola das Artes - Amparo/SP"
+    "10 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
+    "11 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
+    "12 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
+    "13 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
+    "15 • Lyra Bragança - Bragança Paulista/SP",
+    "16 • Marista PIO Xll - Ponta Grossa/PR",
+    "17 • Fundação Lia Maria Aguiar- Campos do Jordão/SP",
+    "18 • Orquestra Popular de Ilhabela - Ilhabelha/SP",
+    "19 • BAMMA - Banda Sinfônica da Escola das Artes - Amparo/SP"
 ];
 
 
