@@ -27,7 +27,7 @@ function atualizarFormulario() {
 
     console.log("atualizou");
 
-    if (avaliador === "Avaliador Teste 1" || avaliador === "Marcelo Bambam" || avaliador === "Jorge Scheffer") {
+    if (avaliador === "Teste" || avaliador === "Marcelo Bambam" || avaliador === "Jorge Scheffer") {
         aspecto = "Aspecto de Sopro";
         quesitos = ["Afinação", "Ritmo", "Dinâmica", "Articulação"];
     }
